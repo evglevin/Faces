@@ -9,25 +9,24 @@
 import UIKit
 import SceneKit
 import ARKit
+import Vision
 
-class ViewController: UIViewController, ARSCNViewDelegate {
+import RxSwift
+
+class CameraViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    
+    var faces = [Face]()
+    var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Set the view's delegate
         sceneView.delegate = self
-        
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
-        // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
-        
-        // Set the scene to the view
-        sceneView.scene = scene
+        sceneView.autoenablesDefaultLighting = true
+        bounds = sceneView.bounds
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,9 +34,11 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-
+        configuration.planeDetection = .horizontal
         // Run the view's session
         sceneView.session.run(configuration)
+        
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
