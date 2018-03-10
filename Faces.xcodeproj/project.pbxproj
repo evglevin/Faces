@@ -89,24 +89,12 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
-				B3270CB8204094AD007A59A7 /* Swift */,
-				B3234B48203F7D9B0082142A /* art.scnassets */,
-				B3234B4C203F7D9B0082142A /* Main.storyboard */,
-				B3234B4F203F7D9B0082142A /* Assets.xcassets */,
-				B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */,
-				B3234B54203F7D9B0082142A /* Info.plist */,
-			);
-			path = Faces;
-			sourceTree = "<group>";
-		};
-		B3270CB8204094AD007A59A7 /* Swift */ = {
-			isa = PBXGroup;
-			children = (
 				B3270CB9204094CA007A59A7 /* ViewControllers */,
 				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
 				B3270CBA204094F2007A59A7 /* Face.swift */,
+				B35EF6022053FD2E00B9CBC5 /* Assets */,
 			);
-			path = Swift;
+			path = Faces;
 			sourceTree = "<group>";
 		};
 		B3270CB9204094CA007A59A7 /* ViewControllers */ = {
@@ -115,6 +103,18 @@
 				B3270CB620409402007A59A7 /* CameraViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B35EF6022053FD2E00B9CBC5 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B3234B48203F7D9B0082142A /* art.scnassets */,
+				B3234B4C203F7D9B0082142A /* Main.storyboard */,
+				B3234B4F203F7D9B0082142A /* Assets.xcassets */,
+				B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */,
+				B3234B54203F7D9B0082142A /* Info.plist */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
