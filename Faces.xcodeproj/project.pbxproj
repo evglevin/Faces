@@ -16,7 +16,11 @@
 		B3234B5B203F7E280082142A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B3234B5A203F7E280082142A /* .gitignore */; };
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
-		B342962E2048A7360053B2EC /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B342962F2048A7360053B2EC /* RxSwift.framework */; };
+		B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */; };
+		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
+		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
+		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
+		B38C51DF20593F4D0019832B /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DE20593F4D0019832B /* faces_model.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +37,11 @@
 		B3234B5A203F7E280082142A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
-		B342962F2048A7360053B2EC /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceOrientation.swift; sourceTree = "<group>"; };
+		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
+		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
+		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
+		B38C51DE20593F4D0019832B /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +49,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B342962E2048A7360053B2EC /* RxSwift.framework in Frameworks */,
 				55F3B7E72DA74BE1A42C848E /* Pods_Faces.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,7 +59,6 @@
 		06ABEA37723ECCCE6339F3A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B342962F2048A7360053B2EC /* RxSwift.framework */,
 				9B7301C3F20227D5DF32F999 /* Pods_Faces.framework */,
 			);
 			name = Frameworks;
@@ -89,10 +95,12 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
+				B38C51DE20593F4D0019832B /* faces_model.mlmodel */,
+				B35EF6022053FD2E00B9CBC5 /* Assets */,
+				B38C51D920591FD30019832B /* Extensions */,
 				B3270CB9204094CA007A59A7 /* ViewControllers */,
 				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
 				B3270CBA204094F2007A59A7 /* Face.swift */,
-				B35EF6022053FD2E00B9CBC5 /* Assets */,
 			);
 			path = Faces;
 			sourceTree = "<group>";
@@ -115,6 +123,17 @@
 				B3234B54203F7D9B0082142A /* Info.plist */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		B38C51D920591FD30019832B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */,
+				B38C51D620591FB40019832B /* SCNVector3+Distance.swift */,
+				B38C51DA205920410019832B /* SCNNode+Text.swift */,
+				B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,10 +216,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Faces/Pods-Faces-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,8 +272,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
+				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
+				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
+				B38C51DF20593F4D0019832B /* faces_model.mlmodel in Sources */,
+				B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */,
+				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +418,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR84PD4583;
-				INFOPLIST_FILE = Faces/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Faces/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levin.Faces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -406,7 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR84PD4583;
-				INFOPLIST_FILE = Faces/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Faces/Assets/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levin.Faces;
 				PRODUCT_NAME = "$(TARGET_NAME)";

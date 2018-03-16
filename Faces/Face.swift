@@ -18,17 +18,17 @@ class Face {
         }
     }
     
-    var timeStamp: TimeInterval {
+    var timestamp: TimeInterval {
         didSet {
             updated = Date()
         }
     }
     private(set) var updated = Date()
     
-    init(name: String, node: SCNNode, timeStamp: TimeInterval) {
+    init(name: String, node: SCNNode, timestamp: TimeInterval) {
         self.name = name
         self.node = node
-        self.timeStamp = timeStamp
+        self.timestamp = timestamp
     }
 }
 

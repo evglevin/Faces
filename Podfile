@@ -7,6 +7,7 @@ target 'Faces' do
 
   # Pods for Faces
   pod 'RxSwift',    '~> 4.1.2'
-
+  pod 'AsyncSwift', '~> 2.0.4'
+  pod 'PKHUD',      '~> 5.0'
 
 end

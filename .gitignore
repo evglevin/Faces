@@ -1,4 +1,4 @@
-# xcode noise
+# Xcode noise
 build/*
 integration/tmp/*
 *.perspective
@@ -9,8 +9,12 @@ integration/tmp/*
 xcuserdata
 Snapshots
 
-# osx noise
+# macOS noise
 .DS_Store
 
-# cocoapods noise
+# CocoaPods noise
 Pods
+
+# Models
+*.mlmodel
+
