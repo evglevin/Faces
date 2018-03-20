@@ -34,7 +34,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         
         // MARK: Debug
 //        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-        sceneView.showsStatistics = true
+//        sceneView.showsStatistics = true
         
         bounds = sceneView.bounds
     }

@@ -16,11 +16,11 @@
 		B3234B5B203F7E280082142A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B3234B5A203F7E280082142A /* .gitignore */; };
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
+		B336F72C20606A6B0012E811 /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B336F72B20606A6B0012E811 /* faces_model.mlmodel */; };
 		B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
-		B38C51DF20593F4D0019832B /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DE20593F4D0019832B /* faces_model.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +37,11 @@
 		B3234B5A203F7E280082142A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
+		B336F72B20606A6B0012E811 /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
 		B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceOrientation.swift; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
-		B38C51DE20593F4D0019832B /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
-				B38C51DE20593F4D0019832B /* faces_model.mlmodel */,
+				B336F72B20606A6B0012E811 /* faces_model.mlmodel */,
 				B35EF6022053FD2E00B9CBC5 /* Assets */,
 				B38C51D920591FD30019832B /* Extensions */,
 				B3270CB9204094CA007A59A7 /* ViewControllers */,
@@ -276,7 +276,7 @@
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
 				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
-				B38C51DF20593F4D0019832B /* faces_model.mlmodel in Sources */,
+				B336F72C20606A6B0012E811 /* faces_model.mlmodel in Sources */,
 				B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */,
 				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
 			);
