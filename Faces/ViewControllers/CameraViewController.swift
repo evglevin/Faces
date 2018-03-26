@@ -18,12 +18,16 @@ import PKHUD
 class CameraViewController: UIViewController, ARSCNViewDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
+    @IBOutlet weak var BackToStartScreenButton: UIButton!
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     var disposeBag = DisposeBag()
     var faces = [Face]()
     var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
     let model: VNCoreMLModel = try! VNCoreMLModel(for: faces_model().model)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

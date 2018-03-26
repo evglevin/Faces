@@ -16,11 +16,14 @@
 		B3234B5B203F7E280082142A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B3234B5A203F7E280082142A /* .gitignore */; };
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
-		B336F72C20606A6B0012E811 /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B336F72B20606A6B0012E811 /* faces_model.mlmodel */; };
+		B336F72C20606A6B0012E811 /* faces_model1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B336F72B20606A6B0012E811 /* faces_model1.mlmodel */; };
 		B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */; };
+		B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model.mlmodel */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
+		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
+		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +40,14 @@
 		B3234B5A203F7E280082142A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
-		B336F72B20606A6B0012E811 /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
+		B336F72B20606A6B0012E811 /* faces_model1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model1.mlmodel; sourceTree = "<group>"; };
 		B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceOrientation.swift; sourceTree = "<group>"; };
+		B359C8A12068429400249BF2 /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
+		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +101,8 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
-				B336F72B20606A6B0012E811 /* faces_model.mlmodel */,
+				B336F72B20606A6B0012E811 /* faces_model1.mlmodel */,
+				B359C8A12068429400249BF2 /* faces_model.mlmodel */,
 				B35EF6022053FD2E00B9CBC5 /* Assets */,
 				B38C51D920591FD30019832B /* Extensions */,
 				B3270CB9204094CA007A59A7 /* ViewControllers */,
@@ -108,7 +115,9 @@
 		B3270CB9204094CA007A59A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B39ADD08206966C0007462EB /* TransitionAnimations */,
 				B3270CB620409402007A59A7 /* CameraViewController.swift */,
+				B39ADD04206856FD007462EB /* StartScreenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -134,6 +143,14 @@
 				B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B39ADD08206966C0007462EB /* TransitionAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				B39ADD0620695EF8007462EB /* CustomAnimationController.swift */,
+			);
+			path = TransitionAnimations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,14 +288,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
 				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
-				B336F72C20606A6B0012E811 /* faces_model.mlmodel in Sources */,
+				B336F72C20606A6B0012E811 /* faces_model1.mlmodel in Sources */,
 				B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */,
 				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
+				B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */,
+				B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
