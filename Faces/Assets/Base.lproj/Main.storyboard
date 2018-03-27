@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +36,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bex-DI-luw">
-                                <rect key="frame" x="134" y="394" width="107" height="48"/>
+                                <rect key="frame" x="134" y="375" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,12 +45,27 @@
                                     <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awp-8G-xFe">
+                                <rect key="frame" x="97" y="431" width="182" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Update model">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="tBP-Rd-7Vz" kind="show" identifier="showUpdateModelViewController" id="z4c-PN-WFC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.26517671346664429" green="0.41094815731048584" blue="0.69154804944992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="awp-8G-xFe" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="8H3-Yo-9CZ"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerY" secondItem="zec-7N-PGF" secondAttribute="centerY" id="EeW-TQ-TZ7"/>
+                            <constraint firstItem="awp-8G-xFe" firstAttribute="top" secondItem="bex-DI-luw" secondAttribute="bottom" constant="8" id="GYT-E6-6YU"/>
                             <constraint firstItem="Wji-hf-fP9" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="Q1F-Mt-rnk"/>
-                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="26.5" id="dd6-ty-Ap3"/>
+                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="7.5" id="dd6-ty-Ap3"/>
                             <constraint firstItem="bex-DI-luw" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="e9y-Um-CGx"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="k9I-Ts-XPU"/>
                             <constraint firstItem="Wji-hf-fP9" firstAttribute="top" secondItem="zec-7N-PGF" secondAttribute="top" constant="110" id="owv-4h-E2I"/>
@@ -57,13 +73,71 @@
                         <viewLayoutGuide key="safeArea" id="zec-7N-PGF"/>
                     </view>
                     <connections>
-                        <outlet property="CameraButton" destination="J3N-3c-dLR" id="Nkn-vU-aM9"/>
-                        <outlet property="SettingsButton" destination="bex-DI-luw" id="ezQ-7j-WER"/>
+                        <outlet property="cameraButton" destination="J3N-3c-dLR" id="Nkn-vU-aM9"/>
+                        <outlet property="settingsButton" destination="bex-DI-luw" id="ezQ-7j-WER"/>
+                        <outlet property="updateModelButton" destination="awp-8G-xFe" id="0Ye-6O-L0y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8UA-B9-U0U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-854" y="33"/>
+        </scene>
+        <!--Update Model View Controller-->
+        <scene sceneID="DvB-sS-JTx">
+            <objects>
+                <viewController id="tBP-Rd-7Vz" customClass="UpdateModelViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g5e-eF-hLw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCf-Rb-Zy2">
+                                <rect key="frame" x="96" y="319.5" width="182" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Update model"/>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDownload:" destination="tBP-Rd-7Vz" eventType="touchUpInside" id="1Kh-Lr-VAk"/>
+                                </connections>
+                            </button>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-ei-h6F">
+                                <rect key="frame" x="112" y="438" width="150" height="2"/>
+                            </progressView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2NR-uQ-jVU">
+                                <rect key="frame" x="16" y="605" width="54" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Zwl-XR-BIt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="xZ5-3X-H2J" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="3WW-5r-RFB"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YCf-Rb-Zy2" firstAttribute="centerY" secondItem="4MC-wP-AZ2" secondAttribute="centerY" id="2gT-eS-mn0"/>
+                            <constraint firstItem="Fg6-ei-h6F" firstAttribute="top" secondItem="YCf-Rb-Zy2" secondAttribute="bottom" constant="70.5" id="4j3-zY-jn8"/>
+                            <constraint firstItem="4MC-wP-AZ2" firstAttribute="bottom" secondItem="2NR-uQ-jVU" secondAttribute="bottom" constant="20" id="5y0-B4-A4p"/>
+                            <constraint firstItem="YCf-Rb-Zy2" firstAttribute="centerX" secondItem="4MC-wP-AZ2" secondAttribute="centerX" id="IXi-Mc-jxN"/>
+                            <constraint firstItem="2NR-uQ-jVU" firstAttribute="leading" secondItem="4MC-wP-AZ2" secondAttribute="leading" constant="16" id="Wkm-hL-j0y"/>
+                            <constraint firstItem="2NR-uQ-jVU" firstAttribute="leading" secondItem="g5e-eF-hLw" secondAttribute="leading" constant="16" id="qNQ-ZF-2tu"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2NR-uQ-jVU" secondAttribute="trailing" constant="20" symbolic="YES" id="thq-GB-49Q"/>
+                            <constraint firstItem="Fg6-ei-h6F" firstAttribute="leading" secondItem="g5e-eF-hLw" secondAttribute="leadingMargin" constant="96" id="vmg-Jx-fBF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fg6-ei-h6F" secondAttribute="trailing" constant="97" id="wQd-s8-0Wu"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4MC-wP-AZ2"/>
+                    </view>
+                    <connections>
+                        <outlet property="progressView" destination="Fg6-ei-h6F" id="erv-ce-5Lx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MFy-Co-Xae" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="xZ5-3X-H2J" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-855" y="760"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="tXr-a1-R10">

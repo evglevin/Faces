@@ -27,7 +27,8 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     var disposeBag = DisposeBag()
     var faces = [Face]()
     var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
-    let model: VNCoreMLModel = try! VNCoreMLModel(for: faces_model().model)
+    
+    var model: VNCoreMLModel = try! VNCoreMLModel(for: faces_model().model)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,14 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         // MARK: Debug
 //        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
 //        sceneView.showsStatistics = true
+        
+        // MARK: load model
+        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentDirectoryPath:String = path[0]
+        let modelUrl = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/faces_model.mlmodel"))
+        let compiledUrl = try! MLModel.compileModel(at: modelUrl)
+        let mlModel = try! MLModel(contentsOf: compiledUrl)
+        model = try! VNCoreMLModel(for: mlModel)
         
         bounds = sceneView.bounds
     }

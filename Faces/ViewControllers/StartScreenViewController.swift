@@ -8,11 +8,14 @@
 
 import UIKit
 
-class StartScreenViewController: UIViewController, UIViewControllerTransitioningDelegate {
+class StartScreenViewController: UIViewController {
 
-    @IBOutlet weak var CameraButton: UIButton!
-    @IBOutlet weak var SettingsButton: UIButton!
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
+    @IBOutlet weak var updateModelButton: UIButton!
     
+    
+    // MARK: Animations
     let animationController = CustomAnimationController(withPresentedDelay: 0.6, withDismissedDelay: 0.0, withDuration: 0.5)
     
     @IBAction func unwindToStartScreen(segue: UIStoryboardSegue) {}
@@ -26,7 +29,7 @@ class StartScreenViewController: UIViewController, UIViewControllerTransitioning
 
         // Do any additional setup after loading the view.
         
-        SettingsButton.isEnabled = false
+        settingsButton.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,25 +37,18 @@ class StartScreenViewController: UIViewController, UIViewControllerTransitioning
         // Dispose of any resources that can be recreated.
     }
     
-    
-    // MARK: - UIViewControllerTransitioningDelegate
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCameraViewController" {
-            let toViewController = segue.destination as UIViewController
-            toViewController.transitioningDelegate = self.animationController
-        }
-    }
-    
-    
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showCameraViewController" {
+            let toViewController = segue.destination as UIViewController
+            toViewController.transitioningDelegate = self.animationController
+        }
     }
-    */
+    
 
 }
