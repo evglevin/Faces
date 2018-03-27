@@ -91,12 +91,12 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
         disposeBag = DisposeBag()
         
         // Pause the view's session
         sceneView.session.pause()
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

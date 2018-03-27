@@ -17,6 +17,7 @@
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */; };
+		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
 		B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model.mlmodel */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C1789206A49700069AF26 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C1788206A49700069AF26 /* ModelManager.swift */; };
@@ -42,6 +43,7 @@
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceOrientation.swift; sourceTree = "<group>"; };
+		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B359C8A12068429400249BF2 /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C1788206A49700069AF26 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
@@ -118,9 +120,10 @@
 			isa = PBXGroup;
 			children = (
 				B39ADD08206966C0007462EB /* TransitionAnimations */,
-				B3270CB620409402007A59A7 /* CameraViewController.swift */,
 				B39ADD04206856FD007462EB /* StartScreenViewController.swift */,
+				B3270CB620409402007A59A7 /* CameraViewController.swift */,
 				B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */,
+				B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B38C1789206A49700069AF26 /* ModelManager.swift in Sources */,
+				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
 				B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */,
 				B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,

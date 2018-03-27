@@ -28,14 +28,24 @@ class StartScreenViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        settingsButton.isEnabled = false
+        //self.navigationController?.isNavigationBarHidden = true
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //self.navigationController?.isNavigationBarHidden = false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     // MARK: - Navigation
@@ -44,9 +54,12 @@ class StartScreenViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "showCameraViewController" {
+        if segue.identifier == "cameraViewController" {
             let toViewController = segue.destination as UIViewController
             toViewController.transitioningDelegate = self.animationController
+        }
+        else if segue.identifier == "settingsTableViewController" {
+            self.navigationController?.isNavigationBarHidden = false
         }
     }
     
