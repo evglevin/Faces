@@ -50,12 +50,9 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         let context = appDelegate.persistentContainer.viewContext
         let fetchRequest: NSFetchRequest<Model> = Model.fetchRequest()
         
-        let model = try! context.fetch(fetchRequest)
+        let models = try! context.fetch(fetchRequest)
         
-        print(model[0].path!)
-        print(URL(fileURLWithPath: model[0].path!).path)
-        
-        let mlModel = try! MLModel(contentsOf: URL(fileURLWithPath: model[0].path!))
+        let mlModel = try! MLModel(contentsOf: models[0].path!)
         self.model = try! VNCoreMLModel(for: mlModel)
         
         
@@ -66,7 +63,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.run(configuration)
         
         
-        Observable<Int>.interval(0.6, scheduler: SerialDispatchQueueScheduler(qos: .default))
+        Observable<Int>.interval(0.2, scheduler: SerialDispatchQueueScheduler(qos: .default))
             .subscribeOn(SerialDispatchQueueScheduler(qos: .background))
             .concatMap{ _ in  self.faceObservation() }
             .flatMap{ Observable.from($0) }

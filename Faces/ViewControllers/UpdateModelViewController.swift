@@ -72,7 +72,7 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
     func moveModelToAppSupportDir(from compiledUrl: URL) {
         // find the app support directory
         let fileManager = FileManager.default
-        let appSupportDirectory = try! fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
+        let appSupportDirectory = try! fileManager.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
         // create a permanent URL in the app support directory
         let permanentUrl = appSupportDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
         do {
@@ -92,11 +92,15 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
         
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        
         let entity = NSEntityDescription.entity(forEntityName: "Model", in: context)
         let modelObject = NSManagedObject(entity: entity!, insertInto: context) as! Model
-        modelObject.path = permanentUrl.path
+        modelObject.path = permanentUrl
         
         do {
+            try context.execute(deleteRequest)
             try context.save()
         }
         catch {
