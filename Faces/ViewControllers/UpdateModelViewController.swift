@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import CoreML
+import CoreData
 
 class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
 
@@ -42,54 +44,20 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
         downloadTask.resume()
     }
     
-//    func showFileWithPath(path: String){
-//        let isFileFound:Bool? = FileManager.default.fileExists(atPath: path)
-//        if isFileFound == true{
-//            let viewer = UIDocumentInteractionController(url: URL(fileURLWithPath: path))
-//            viewer.delegate = self
-//            viewer.presentPreview(animated: true)
-//        }
-//    }
     
     //MARK: - URLSessionDownloadDelegate
-    // 1
-    func urlSession(_ session: URLSession,
-                    downloadTask: URLSessionDownloadTask,
-                    didFinishDownloadingTo location: URL){
-        
-        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentDirectoryPath:String = path[0]
-        let fileManager = FileManager()
-        let destinationURLForFile = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/faces_model.mlmodel"))
-        
-        print(destinationURLForFile)
-        
-        if fileManager.fileExists(atPath: destinationURLForFile.path){
-            //showFileWithPath(path: destinationURLForFile.path)
-        }
-        else{
-            do {
-                try fileManager.moveItem(at: location, to: destinationURLForFile)
-                // show file
-                //showFileWithPath(path: destinationURLForFile.path)
-            }catch{
-                print("An error occurred while moving file to destination url")
-            }
-        }
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL){
+        let compiledUrl = try! MLModel.compileModel(at: location)
+        moveModelToAppSupportDir(from: compiledUrl)
     }
-    // 2
-    func urlSession(_ session: URLSession,
-                    downloadTask: URLSessionDownloadTask,
-                    didWriteData bytesWritten: Int64,
-                    totalBytesWritten: Int64,
-                    totalBytesExpectedToWrite: Int64){
+    
+    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
         progressView.setProgress(Float(totalBytesWritten)/Float(totalBytesExpectedToWrite), animated: true)
     }
     
     //MARK: - URLSessionTaskDelegate
-    func urlSession(_ session: URLSession,
-                    task: URLSessionTask,
-                    didCompleteWithError error: Error?){
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?){
         downloadTask = nil
         progressView.setProgress(0.0, animated: true)
         if (error != nil) {
@@ -98,8 +66,43 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
             let alert = UIAlertController(title: "Model updated successfully", message: nil, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
-            //print("The task finished transferring data successfully")
         }
+    }
+    
+    func moveModelToAppSupportDir(from compiledUrl: URL) {
+        // find the app support directory
+        let fileManager = FileManager.default
+        let appSupportDirectory = try! fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
+        // create a permanent URL in the app support directory
+        let permanentUrl = appSupportDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
+        do {
+            // if the file exists, replace it. Otherwise, copy the file to the destination.
+            if fileManager.fileExists(atPath: permanentUrl.path) {
+                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
+            } else {
+                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
+            }
+            saveModelToCoreData(permanentUrl: permanentUrl)
+        } catch {
+            print("Error during copy: \(error.localizedDescription)")
+        }
+    }
+    
+    func saveModelToCoreData(permanentUrl: URL) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Model", in: context)
+        let modelObject = NSManagedObject(entity: entity!, insertInto: context) as! Model
+        modelObject.path = permanentUrl.path
+        
+        do {
+            try context.save()
+        }
+        catch {
+            print("Can't save URL", permanentUrl, "to CoreData")
+        }
+        
     }
     
     

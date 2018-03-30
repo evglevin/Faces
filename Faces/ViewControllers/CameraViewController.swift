@@ -10,6 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 import Vision
+import CoreData
 
 import RxSwift
 import Async
@@ -28,7 +29,8 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     var faces = [Face]()
     var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
     
-    var model: VNCoreMLModel = try! VNCoreMLModel(for: faces_model().model)
+    var model: VNCoreMLModel?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,23 +39,25 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         sceneView.autoenablesDefaultLighting = true
         
-        // MARK: Debug
-//        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
-//        sceneView.showsStatistics = true
-        
-        // MARK: load model
-        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentDirectoryPath:String = path[0]
-        let modelUrl = URL(fileURLWithPath: documentDirectoryPath.appendingFormat("/faces_model.mlmodel"))
-        let compiledUrl = try! MLModel.compileModel(at: modelUrl)
-        let mlModel = try! MLModel(contentsOf: compiledUrl)
-        model = try! VNCoreMLModel(for: mlModel)
-        
         bounds = sceneView.bounds
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        // Load model
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<Model> = Model.fetchRequest()
+        
+        let model = try! context.fetch(fetchRequest)
+        
+        print(model[0].path!)
+        print(URL(fileURLWithPath: model[0].path!).path)
+        
+        let mlModel = try! MLModel(contentsOf: URL(fileURLWithPath: model[0].path!))
+        self.model = try! VNCoreMLModel(for: mlModel)
+        
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
@@ -197,7 +201,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
             }
             
             // Create Classification request
-            let request = VNCoreMLRequest(model: self.model, completionHandler: { request, error in
+            let request = VNCoreMLRequest(model: self.model!, completionHandler: { request, error in
                 guard error == nil else {
                     print("ML request error: \(error!.localizedDescription)")
                     observer.onCompleted()

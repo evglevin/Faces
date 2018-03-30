@@ -28,17 +28,6 @@ class StartScreenViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        //self.navigationController?.isNavigationBarHidden = true
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        //self.navigationController?.isNavigationBarHidden = false
     }
     
     override func didReceiveMemoryWarning() {
@@ -57,9 +46,6 @@ class StartScreenViewController: UIViewController {
         if segue.identifier == "cameraViewController" {
             let toViewController = segue.destination as UIViewController
             toViewController.transitioningDelegate = self.animationController
-        }
-        else if segue.identifier == "settingsTableViewController" {
-            self.navigationController?.isNavigationBarHidden = false
         }
     }
     

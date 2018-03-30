@@ -11,21 +11,20 @@
 		B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3234B46203F7D9B0082142A /* AppDelegate.swift */; };
 		B3234B49203F7D9B0082142A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3234B48203F7D9B0082142A /* art.scnassets */; };
 		B3234B4E203F7D9B0082142A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3234B4C203F7D9B0082142A /* Main.storyboard */; };
-		B3234B50203F7D9B0082142A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3234B4F203F7D9B0082142A /* Assets.xcassets */; };
 		B3234B53203F7D9B0082142A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */; };
 		B3234B5B203F7E280082142A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B3234B5A203F7E280082142A /* .gitignore */; };
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
-		B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
-		B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model.mlmodel */; };
+		B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model1.mlmodel */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
-		B38C1789206A49700069AF26 /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C1788206A49700069AF26 /* ModelManager.swift */; };
 		B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
+		B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B395C105206D8847007DC8BF /* Faces.xcdatamodeld */; };
 		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
 		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
+		B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,22 +35,23 @@
 		B3234B46203F7D9B0082142A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3234B48203F7D9B0082142A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		B3234B4D203F7D9B0082142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3234B4F203F7D9B0082142A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3234B52203F7D9B0082142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3234B54203F7D9B0082142A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3234B5A203F7E280082142A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
-		B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceOrientation.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		B359C8A12068429400249BF2 /* faces_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model.mlmodel; sourceTree = "<group>"; };
+		B359C8A12068429400249BF2 /* faces_model1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model1.mlmodel; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
-		B38C1788206A49700069AF26 /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelViewController.swift; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
+		B395C104206D8825007DC8BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B395C106206D8847007DC8BF /* Faces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Faces.xcdatamodel; sourceTree = "<group>"; };
 		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
+		B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSettingsTableViewController.swift; sourceTree = "<group>"; };
+		B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +69,7 @@
 		06ABEA37723ECCCE6339F3A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */,
 				9B7301C3F20227D5DF32F999 /* Pods_Faces.framework */,
 			);
 			name = Frameworks;
@@ -105,13 +106,12 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
-				B359C8A12068429400249BF2 /* faces_model.mlmodel */,
-				B35EF6022053FD2E00B9CBC5 /* Assets */,
-				B38C51D920591FD30019832B /* Extensions */,
+				B395C108206D88AE007DC8BF /* Resources */,
 				B3270CB9204094CA007A59A7 /* ViewControllers */,
+				B39ADD08206966C0007462EB /* TransitionAnimations */,
+				B38C51D920591FD30019832B /* Extensions */,
 				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
 				B3270CBA204094F2007A59A7 /* Face.swift */,
-				B38C1788206A49700069AF26 /* ModelManager.swift */,
 			);
 			path = Faces;
 			sourceTree = "<group>";
@@ -119,11 +119,10 @@
 		B3270CB9204094CA007A59A7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B39ADD08206966C0007462EB /* TransitionAnimations */,
+				B3C9E6CE206C10D200B4EAB5 /* Settings */,
 				B39ADD04206856FD007462EB /* StartScreenViewController.swift */,
 				B3270CB620409402007A59A7 /* CameraViewController.swift */,
 				B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */,
-				B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -131,11 +130,8 @@
 		B35EF6022053FD2E00B9CBC5 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				B395C104206D8825007DC8BF /* Assets.xcassets */,
 				B3234B48203F7D9B0082142A /* art.scnassets */,
-				B3234B4C203F7D9B0082142A /* Main.storyboard */,
-				B3234B4F203F7D9B0082142A /* Assets.xcassets */,
-				B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */,
-				B3234B54203F7D9B0082142A /* Info.plist */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -146,9 +142,45 @@
 				B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */,
 				B38C51D620591FB40019832B /* SCNVector3+Distance.swift */,
 				B38C51DA205920410019832B /* SCNNode+Text.swift */,
-				B33BDEB6205C641B00095AE9 /* UIDeviceOrientation.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B395C108206D88AE007DC8BF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B35EF6022053FD2E00B9CBC5 /* Assets */,
+				B395C109206D88CA007DC8BF /* CoreData */,
+				B395C10A206D88D8007DC8BF /* Plist */,
+				B395C10B206D88F0007DC8BF /* Storyboards */,
+				B359C8A12068429400249BF2 /* faces_model1.mlmodel */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B395C109206D88CA007DC8BF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B395C105206D8847007DC8BF /* Faces.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		B395C10A206D88D8007DC8BF /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				B3234B54203F7D9B0082142A /* Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		B395C10B206D88F0007DC8BF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B3234B4C203F7D9B0082142A /* Main.storyboard */,
+				B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		B39ADD08206966C0007462EB /* TransitionAnimations */ = {
@@ -157,6 +189,15 @@
 				B39ADD0620695EF8007462EB /* CustomAnimationController.swift */,
 			);
 			path = TransitionAnimations;
+			sourceTree = "<group>";
+		};
+		B3C9E6CE206C10D200B4EAB5 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */,
+				B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +265,6 @@
 				B3234B5B203F7E280082142A /* .gitignore in Resources */,
 				B3234B49203F7D9B0082142A /* art.scnassets in Resources */,
 				B3234B53203F7D9B0082142A /* LaunchScreen.storyboard in Resources */,
-				B3234B50203F7D9B0082142A /* Assets.xcassets in Resources */,
 				B3234B4E203F7D9B0082142A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,16 +334,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B38C1789206A49700069AF26 /* ModelManager.swift in Sources */,
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
 				B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */,
-				B359C8A22068429400249BF2 /* faces_model.mlmodel in Sources */,
+				B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */,
+				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
 				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
+				B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */,
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
-				B33BDEB7205C641B00095AE9 /* UIDeviceOrientation.swift in Sources */,
 				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
 				B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */,
 				B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */,
@@ -336,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -393,6 +434,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -443,10 +485,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4153FBC092FC2F8DA867251D /* Pods-Faces.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR84PD4583;
-				INFOPLIST_FILE = "$(SRCROOT)/Faces/Assets/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Faces/Resources/Plist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levin.Faces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -459,10 +500,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6DB245EB6BA62F8A04743208 /* Pods-Faces.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LR84PD4583;
-				INFOPLIST_FILE = "$(SRCROOT)/Faces/Assets/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Faces/Resources/Plist/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.levin.Faces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,6 +533,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B395C105206D8847007DC8BF /* Faces.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B395C106206D8847007DC8BF /* Faces.xcdatamodel */,
+			);
+			currentVersion = B395C106206D8847007DC8BF /* Faces.xcdatamodel */;
+			path = Faces.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B3234B3B203F7D9B0082142A /* Project object */;
 }

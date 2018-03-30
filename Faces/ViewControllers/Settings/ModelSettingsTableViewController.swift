@@ -1,5 +1,5 @@
 //
-//  SettingsTableViewController.swift
+//  ModelSettingsTableViewController.swift
 //  Faces
 //
 //  Created by Евгений Левин on 28.03.2018.
@@ -8,13 +8,11 @@
 
 import UIKit
 
-class SettingsTableViewController: UITableViewController {
+class ModelSettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = false
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -22,17 +20,6 @@ class SettingsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        //self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
