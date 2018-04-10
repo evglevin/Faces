@@ -9,6 +9,7 @@
 import UIKit
 import CoreML
 import CoreData
+import Vision
 
 class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
 
@@ -49,7 +50,7 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL){
         let compiledUrl = try! MLModel.compileModel(at: location)
-        moveModelToAppSupportDir(from: compiledUrl)
+        ModelManager.moveModelToAppSupportDir(from: compiledUrl)
     }
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
@@ -67,46 +68,6 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
-    }
-    
-    func moveModelToAppSupportDir(from compiledUrl: URL) {
-        // find the app support directory
-        let fileManager = FileManager.default
-        let appSupportDirectory = try! fileManager.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
-        // create a permanent URL in the app support directory
-        let permanentUrl = appSupportDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
-        do {
-            // if the file exists, replace it. Otherwise, copy the file to the destination.
-            if fileManager.fileExists(atPath: permanentUrl.path) {
-                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
-            } else {
-                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
-            }
-            saveModelToCoreData(permanentUrl: permanentUrl)
-        } catch {
-            print("Error during copy: \(error.localizedDescription)")
-        }
-    }
-    
-    func saveModelToCoreData(permanentUrl: URL) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        let entity = NSEntityDescription.entity(forEntityName: "Model", in: context)
-        let modelObject = NSManagedObject(entity: entity!, insertInto: context) as! Model
-        modelObject.path = permanentUrl
-        
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        }
-        catch {
-            print("Can't save URL", permanentUrl, "to CoreData")
-        }
-        
     }
     
     

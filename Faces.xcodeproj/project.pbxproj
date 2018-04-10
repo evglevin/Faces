@@ -21,6 +21,9 @@
 		B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
+		B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */; };
+		B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A2A207C120500263B3E /* ModelManager.swift */; };
+		B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A2C207CBE8000263B3E /* PeopleTableViewController.swift */; };
 		B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B395C105206D8847007DC8BF /* Faces.xcdatamodeld */; };
 		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
 		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
@@ -47,6 +50,9 @@
 		B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelViewController.swift; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
+		B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
+		B38F0A2A207C120500263B3E /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
+		B38F0A2C207CBE8000263B3E /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
 		B395C106206D8847007DC8BF /* Faces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Faces.xcdatamodel; sourceTree = "<group>"; };
 		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
@@ -113,6 +119,7 @@
 				B38C51D920591FD30019832B /* Extensions */,
 				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
 				B3270CBA204094F2007A59A7 /* Face.swift */,
+				B38F0A2A207C120500263B3E /* ModelManager.swift */,
 			);
 			path = Faces;
 			sourceTree = "<group>";
@@ -145,6 +152,15 @@
 				B38C51DA205920410019832B /* SCNNode+Text.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B38F0A27207C0D6600263B3E /* People */ = {
+			isa = PBXGroup;
+			children = (
+				B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */,
+				B38F0A2C207CBE8000263B3E /* PeopleTableViewController.swift */,
+			);
+			path = People;
 			sourceTree = "<group>";
 		};
 		B395C108206D88AE007DC8BF /* Resources */ = {
@@ -195,6 +211,7 @@
 		B3C9E6CE206C10D200B4EAB5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				B38F0A27207C0D6600263B3E /* People */,
 				B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */,
 				B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */,
 			);
@@ -338,10 +355,13 @@
 			files = (
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
 				B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */,
+				B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */,
 				B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */,
 				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
+				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
+				B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
 				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
 				B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */,

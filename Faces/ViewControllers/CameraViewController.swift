@@ -29,7 +29,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     var faces = [Face]()
     var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
     
-    var model: VNCoreMLModel?
+    var model = ModelManager.model
     
     
     override func viewDidLoad() {
@@ -44,17 +44,6 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // Load model
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<Model> = Model.fetchRequest()
-        
-        let models = try! context.fetch(fetchRequest)
-        
-        let mlModel = try! MLModel(contentsOf: models[0].path!)
-        self.model = try! VNCoreMLModel(for: mlModel)
-        
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
@@ -87,7 +76,6 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
                 }
             }
             .disposed(by: disposeBag)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -198,7 +186,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
             }
             
             // Create Classification request
-            let request = VNCoreMLRequest(model: self.model!, completionHandler: { request, error in
+            let request = VNCoreMLRequest(model: self.model, completionHandler: { request, error in
                 guard error == nil else {
                     print("ML request error: \(error!.localizedDescription)")
                     observer.onCompleted()
@@ -228,7 +216,6 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     }
     
     private func updateNode(classes: [VNClassificationObservation], position: SCNVector3, frame: ARFrame) {
-        
         guard let person = classes.first else {
             print("No classification found")
             return
