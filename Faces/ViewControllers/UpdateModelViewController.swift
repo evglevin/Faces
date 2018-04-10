@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import CoreML
 import CoreData
-import Vision
 
 class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
 
@@ -49,7 +47,7 @@ class UpdateModelViewController: UIViewController, URLSessionDownloadDelegate {
     //MARK: - URLSessionDownloadDelegate
     
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL){
-        let compiledUrl = try! MLModel.compileModel(at: location)
+        let compiledUrl = ModelManager.compileModel(location: location)
         ModelManager.moveModelToAppSupportDir(from: compiledUrl)
     }
     

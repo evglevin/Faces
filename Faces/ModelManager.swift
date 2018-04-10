@@ -43,6 +43,11 @@ class ModelManager {
         savePeopleInformationToDB()
     }
     
+    static func compileModel(location: URL) -> URL {
+        let compiledUrl = try! MLModel.compileModel(at: location)
+        return compiledUrl
+    }
+    
     static func moveModelToAppSupportDir(from compiledUrl: URL) {
         // find the app support directory
         let fileManager = FileManager.default
