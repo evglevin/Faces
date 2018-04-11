@@ -25,20 +25,34 @@ class ModelManager {
         return model
     }
     
-    static func saveModelToDB(permanentUrl: URL) {
+    static func getModelURL() -> URL? {
+        let fetchRequest: NSFetchRequest<Model> = Model.fetchRequest()
+        let models = try! context.fetch(fetchRequest)
+        if models.count > 0 {
+            return models[0].url
+        }
+        else {
+            return nil
+        }
+    }
+    
+    static func saveModelToDB(onlineURL: URL, localPermanentURL: URL) {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
         let entity = NSEntityDescription.entity(forEntityName: "Model", in: context)
         let modelObject = NSManagedObject(entity: entity!, insertInto: context) as! Model
-        modelObject.path = permanentUrl
+        
+        modelObject.url = onlineURL
+        modelObject.path = localPermanentURL
         
         do {
             try context.execute(deleteRequest)
             try context.save()
+            print("OK")
         }
         catch {
-            print("Can't save URL", permanentUrl, "to CoreData")
+            print("Can't save Model to DB")
         }
         savePeopleInformationToDB()
     }
@@ -48,10 +62,10 @@ class ModelManager {
         return compiledUrl
     }
     
-    static func moveModelToAppSupportDir(from compiledUrl: URL) {
+    static func moveModelToDocumentDir(from compiledUrl: URL, onlineURL: URL) {
         // find the app support directory
         let fileManager = FileManager.default
-        let appSupportDirectory = try! fileManager.url(for: .libraryDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
+        let appSupportDirectory = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
         // create a permanent URL in the app support directory
         let permanentUrl = appSupportDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
         do {
@@ -61,7 +75,7 @@ class ModelManager {
             } else {
                 try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
             }
-            saveModelToDB(permanentUrl: permanentUrl)
+            saveModelToDB(onlineURL: onlineURL, localPermanentURL: permanentUrl)
         } catch {
             print("Error during copy: \(error.localizedDescription)")
         }

@@ -18,7 +18,6 @@
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
 		B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model1.mlmodel */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
-		B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
 		B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */; };
@@ -47,7 +46,6 @@
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B359C8A12068429400249BF2 /* faces_model1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model1.mlmodel; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
-		B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModelViewController.swift; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
 		B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 				B3C9E6CE206C10D200B4EAB5 /* Settings */,
 				B39ADD04206856FD007462EB /* StartScreenViewController.swift */,
 				B3270CB620409402007A59A7 /* CameraViewController.swift */,
-				B38C178A206A56A60069AF26 /* UpdateModelViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -354,7 +351,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
-				B38C178B206A56A60069AF26 /* UpdateModelViewController.swift in Sources */,
 				B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */,
 				B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */,
 				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,

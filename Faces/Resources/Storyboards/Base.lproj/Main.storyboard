@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,28 +41,8 @@
                                             <segue destination="Dvt-6D-h1A" kind="show" identifier="modelSettingsTableViewController" id="b5v-Je-067"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="sut-zq-O1G" style="IBUITableViewCellStyleDefault" id="FPH-r5-4qw">
-                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPH-r5-4qw" id="W7c-re-vfY">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Old model page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sut-zq-O1G">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="tBP-Rd-7Vz" kind="show" id="D4V-YN-t8g"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="U47-rv-5gW" style="IBUITableViewCellStyleDefault" id="h5n-cm-AeY">
-                                        <rect key="frame" x="0.0" y="123" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h5n-cm-AeY" id="6Ef-mo-dWX">
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
@@ -163,47 +142,6 @@
             </objects>
             <point key="canvasLocation" x="-791.20000000000005" y="32.833583208395808"/>
         </scene>
-        <!--Update Model-->
-        <scene sceneID="DvB-sS-JTx">
-            <objects>
-                <viewController title="Update Model" id="tBP-Rd-7Vz" customClass="UpdateModelViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="g5e-eF-hLw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCf-Rb-Zy2">
-                                <rect key="frame" x="96.5" y="341.5" width="182" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Update model"/>
-                                <state key="disabled">
-                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="startDownload:" destination="tBP-Rd-7Vz" eventType="touchUpInside" id="1Kh-Lr-VAk"/>
-                                </connections>
-                            </button>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Fg6-ei-h6F">
-                                <rect key="frame" x="112" y="460" width="150" height="2"/>
-                            </progressView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="YCf-Rb-Zy2" firstAttribute="centerY" secondItem="4MC-wP-AZ2" secondAttribute="centerY" id="2gT-eS-mn0"/>
-                            <constraint firstItem="Fg6-ei-h6F" firstAttribute="top" secondItem="YCf-Rb-Zy2" secondAttribute="bottom" constant="70.5" id="4j3-zY-jn8"/>
-                            <constraint firstItem="YCf-Rb-Zy2" firstAttribute="centerX" secondItem="4MC-wP-AZ2" secondAttribute="centerX" id="IXi-Mc-jxN"/>
-                            <constraint firstItem="Fg6-ei-h6F" firstAttribute="leading" secondItem="g5e-eF-hLw" secondAttribute="leadingMargin" constant="96" id="vmg-Jx-fBF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Fg6-ei-h6F" secondAttribute="trailing" constant="97" id="wQd-s8-0Wu"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="4MC-wP-AZ2"/>
-                    </view>
-                    <connections>
-                        <outlet property="progressView" destination="Fg6-ei-h6F" id="erv-ce-5Lx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MFy-Co-Xae" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-792" y="1611"/>
-        </scene>
         <!--People-->
         <scene sceneID="f4n-0Q-N4I">
             <objects>
@@ -255,12 +193,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPb-MV-P12" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7" y="1611"/>
+            <point key="canvasLocation" x="-791" y="1529"/>
         </scene>
         <!--Model-->
         <scene sceneID="TGD-uB-L81">
             <objects>
-                <tableViewController title="Model" id="Dvt-6D-h1A" sceneMemberID="viewController">
+                <tableViewController title="Model" id="Dvt-6D-h1A" customClass="ModelSettingsTableViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="ZAW-Ia-CfT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -274,28 +212,36 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kw5-Gc-gaB" id="JL8-LD-DgI">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Model URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OVF-cn-W65">
+                                                    <rect key="frame" x="16" y="6" width="343" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="QvA-wl-SDL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="blue" indentationWidth="10" id="ETi-fI-SEO">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="downloadButtonCell" textLabel="E75-5Y-GWP" style="IBUITableViewCellStyleDefault" id="YMp-UQ-qVd">
                                         <rect key="frame" x="0.0" y="115" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ETi-fI-SEO" id="HyR-nW-XR2">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YMp-UQ-qVd" id="beD-sS-gbW">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdO-4F-BoR">
-                                                    <rect key="frame" x="153" y="6" width="69" height="30"/>
-                                                    <state key="normal" title="Download"/>
-                                                </button>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Update model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="E75-5Y-GWP">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="xdO-4F-BoR" firstAttribute="centerY" secondItem="HyR-nW-XR2" secondAttribute="centerY" id="I3o-Jr-ez1"/>
-                                                <constraint firstItem="xdO-4F-BoR" firstAttribute="centerX" secondItem="HyR-nW-XR2" secondAttribute="centerX" id="j6v-Ft-g9V"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -306,10 +252,13 @@
                             <outlet property="delegate" destination="Dvt-6D-h1A" id="BXy-I1-Sjl"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="modelURLLabel" destination="OVF-cn-W65" id="iyY-Vr-f1S"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jo1-dc-HLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="779"/>
+            <point key="canvasLocation" x="-7.2000000000000002" y="778.56071964017997"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="tXr-a1-R10">
