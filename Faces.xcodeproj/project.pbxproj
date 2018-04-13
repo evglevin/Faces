@@ -16,18 +16,19 @@
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
-		B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = B359C8A12068429400249BF2 /* faces_model1.mlmodel */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
 		B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */; };
 		B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A2A207C120500263B3E /* ModelManager.swift */; };
 		B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F0A2C207CBE8000263B3E /* PeopleTableViewController.swift */; };
+		B392DFC5208126A9007AD50A /* FileDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B392DFC4208126A9007AD50A /* FileDownloader.swift */; };
 		B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B395C105206D8847007DC8BF /* Faces.xcdatamodeld */; };
 		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
 		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
 		B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3ADFE99206E6DE100B9DF28 /* Media.xcassets */; };
 		B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */; };
+		B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA1174208136A6003FDE2F /* AlertController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,19 +45,21 @@
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		B359C8A12068429400249BF2 /* faces_model1.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = faces_model1.mlmodel; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
 		B38F0A28207C0DA800263B3E /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 		B38F0A2A207C120500263B3E /* ModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelManager.swift; sourceTree = "<group>"; };
 		B38F0A2C207CBE8000263B3E /* PeopleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeopleTableViewController.swift; sourceTree = "<group>"; };
+		B392DFC4208126A9007AD50A /* FileDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloader.swift; sourceTree = "<group>"; };
 		B395C106206D8847007DC8BF /* Faces.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Faces.xcdatamodel; sourceTree = "<group>"; };
 		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
 		B3ADFE99206E6DE100B9DF28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B3DA1174208136A6003FDE2F /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		B3DA1176208137F5003FDE2F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		06ABEA37723ECCCE6339F3A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B3DA1176208137F5003FDE2F /* Alamofire.framework */,
 				B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */,
 				9B7301C3F20227D5DF32F999 /* Pods_Faces.framework */,
 			);
@@ -111,13 +115,10 @@
 		B3234B45203F7D9B0082142A /* Faces */ = {
 			isa = PBXGroup;
 			children = (
+				B392DFC22081256D007AD50A /* Swift */,
+				B395C10B206D88F0007DC8BF /* Storyboards */,
+				B395C109206D88CA007DC8BF /* CoreData */,
 				B395C108206D88AE007DC8BF /* Resources */,
-				B3270CB9204094CA007A59A7 /* ViewControllers */,
-				B39ADD08206966C0007462EB /* TransitionAnimations */,
-				B38C51D920591FD30019832B /* Extensions */,
-				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
-				B3270CBA204094F2007A59A7 /* Face.swift */,
-				B38F0A2A207C120500263B3E /* ModelManager.swift */,
 			);
 			path = Faces;
 			sourceTree = "<group>";
@@ -160,14 +161,34 @@
 			path = People;
 			sourceTree = "<group>";
 		};
+		B392DFC22081256D007AD50A /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				B3270CB9204094CA007A59A7 /* ViewControllers */,
+				B3DA117320813692003FDE2F /* Frontend */,
+				B392DFC320812663007AD50A /* Backend */,
+				B38C51D920591FD30019832B /* Extensions */,
+				B39ADD08206966C0007462EB /* TransitionAnimations */,
+				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
+				B3270CBA204094F2007A59A7 /* Face.swift */,
+			);
+			path = Swift;
+			sourceTree = "<group>";
+		};
+		B392DFC320812663007AD50A /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				B38F0A2A207C120500263B3E /* ModelManager.swift */,
+				B392DFC4208126A9007AD50A /* FileDownloader.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
 		B395C108206D88AE007DC8BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				B35EF6022053FD2E00B9CBC5 /* Assets */,
-				B395C109206D88CA007DC8BF /* CoreData */,
 				B395C10A206D88D8007DC8BF /* Plist */,
-				B395C10B206D88F0007DC8BF /* Storyboards */,
-				B359C8A12068429400249BF2 /* faces_model1.mlmodel */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -215,6 +236,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		B3DA117320813692003FDE2F /* Frontend */ = {
+			isa = PBXGroup;
+			children = (
+				B3DA1174208136A6003FDE2F /* AlertController.swift */,
+			);
+			path = Frontend;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -227,7 +256,6 @@
 				B3234B40203F7D9B0082142A /* Frameworks */,
 				B3234B41203F7D9B0082142A /* Resources */,
 				847F52DD4682776D186CF7E7 /* [CP] Embed Pods Frameworks */,
-				DC97643D32408275C6189003 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -295,15 +323,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Faces/Pods-Faces-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -328,21 +360,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC97643D32408275C6189003 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Faces/Pods-Faces-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -352,7 +369,6 @@
 			files = (
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
 				B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */,
-				B359C8A22068429400249BF2 /* faces_model1.mlmodel in Sources */,
 				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
@@ -363,7 +379,9 @@
 				B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */,
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
 				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
+				B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */,
 				B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */,
+				B392DFC5208126A9007AD50A /* FileDownloader.swift in Sources */,
 				B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +445,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -441,6 +460,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -487,6 +507,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -495,6 +516,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

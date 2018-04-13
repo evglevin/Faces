@@ -6,8 +6,9 @@ target 'Faces' do
   use_frameworks!
 
   # Pods for Faces
-  pod 'RxSwift',    '~> 4.1.2'
-  pod 'AsyncSwift', '~> 2.0.4'
-  pod 'PKHUD',      '~> 5.0'
-
+  pod 'RxSwift',      '~> 4.1.2'
+  pod 'AsyncSwift',   '~> 2.0.4'
+  pod 'PKHUD',        '~> 5.0'
+  pod 'Alamofire',    '~> 4.7'
+  pod 'SSZipArchive', '~> 2.1.2'
 end

@@ -62,24 +62,24 @@ class ModelManager {
         return compiledUrl
     }
     
-    static func moveModelToDocumentDir(from compiledUrl: URL, onlineURL: URL) {
-        // find the app support directory
-        let fileManager = FileManager.default
-        let appSupportDirectory = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
-        // create a permanent URL in the app support directory
-        let permanentUrl = appSupportDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
-        do {
-            // if the file exists, replace it. Otherwise, copy the file to the destination.
-            if fileManager.fileExists(atPath: permanentUrl.path) {
-                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
-            } else {
-                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
-            }
-            saveModelToDB(onlineURL: onlineURL, localPermanentURL: permanentUrl)
-        } catch {
-            print("Error during copy: \(error.localizedDescription)")
-        }
-    }
+//    static func moveModelToDocumentDir(from compiledUrl: URL, onlineURL: URL) {
+//        // find the app support directory
+//        let fileManager = FileManager.default
+//        let documentDirectory = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
+//        // create a permanent URL in the app support directory
+//        let permanentUrl = documentDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
+//        do {
+//            // if the file exists, replace it. Otherwise, copy the file to the destination.
+//            if fileManager.fileExists(atPath: permanentUrl.path) {
+//                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
+//            } else {
+//                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
+//            }
+//            saveModelToDB(onlineURL: onlineURL, localPermanentURL: permanentUrl)
+//        } catch {
+//            print("Error during copy: \(error.localizedDescription)")
+//        }
+//    }
     
     static func getModelClasses() -> [String] {
         var people = [String]()

@@ -1,18 +1,32 @@
 PODS:
+  - Alamofire (4.7.1)
   - AsyncSwift (2.0.4)
   - PKHUD (5.0.0)
   - RxSwift (4.1.2)
+  - SSZipArchive (2.1.2)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - AsyncSwift (~> 2.0.4)
   - PKHUD (~> 5.0)
   - RxSwift (~> 4.1.2)
+  - SSZipArchive (~> 2.1.2)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - AsyncSwift
+    - PKHUD
+    - RxSwift
+    - SSZipArchive
 
 SPEC CHECKSUMS:
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   AsyncSwift: 65775a7b32e740609b24969ece3de58723b9dc3e
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
+  SSZipArchive: d4009d2ce5520a421f231fd97028cc0e2667eed8
 
-PODFILE CHECKSUM: 75155ac3d752b8b67c19e3eee9c434e6990b38dc
+PODFILE CHECKSUM: a442d2d69fc32d24834e5152e6e20aeb335d69f0
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0
