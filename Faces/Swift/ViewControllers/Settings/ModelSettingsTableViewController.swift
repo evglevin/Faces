@@ -9,10 +9,10 @@
 import UIKit
 import CoreData
 
-class ModelSettingsTableViewController: UITableViewController, URLSessionDownloadDelegate {
-    var downloadTask: URLSessionDownloadTask!
-    var backgroundSession: URLSession!
-    //let modelURL = URL(string: "https://github.com/evglevin/test/raw/master/faces_model.mlmodel")!
+import Alamofire
+import SSZipArchive
+
+class ModelSettingsTableViewController: UITableViewController {
     @IBOutlet weak var modelURLLabel: UITextField!
     
     override func viewDidLoad() {
@@ -23,10 +23,6 @@ class ModelSettingsTableViewController: UITableViewController, URLSessionDownloa
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-        let backgroundSessionConfiguration = URLSessionConfiguration.background(withIdentifier: "backgroundSession")
-        backgroundSession = URLSession(configuration: backgroundSessionConfiguration, delegate: self, delegateQueue: OperationQueue.main)
-        //progressView.setProgress(0.0, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,17 +37,8 @@ class ModelSettingsTableViewController: UITableViewController, URLSessionDownloa
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        backgroundSession.finishTasksAndInvalidate()
     }
     
-    func startDownload() {
-//        downloadTask = backgroundSession.downloadTask(with: URL(string: modelURLLabel.text!)!)
-//        downloadTask.resume()
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let name = "Model0"
-        FileDownloader.downloadZIPWithProgressView(onViewController: self, fromURL: modelURLLabel.text!, withName: name, toDir: documentsURL)
-    }
-
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         let identifier = cell?.reuseIdentifier ?? ""
@@ -61,28 +48,50 @@ class ModelSettingsTableViewController: UITableViewController, URLSessionDownloa
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    //MARK: - URLSessionDownloadDelegate
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL){
-        let compiledUrl = ModelManager.compileModel(location: location)
-        //ModelManager.moveModelToDocumentDir(from: compiledUrl, onlineURL: URL(string: modelURLLabel.text!)!)
-    }
-    
-    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64){
-        //progressView.setProgress(Float(totalBytesWritten)/Float(totalBytesExpectedToWrite), animated: true)
-    }
-    
-    //MARK: - URLSessionTaskDelegate
-    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?){
-        downloadTask = nil
-        //progressView.setProgress(0.0, animated: true)
-        if (error != nil) {
-            print(error!.localizedDescription)
-        }else{
-            let alert = UIAlertController(title: "Model updated successfully", message: nil, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-            self.present(alert, animated: true)
+    func startDownload() {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let name = "Model0"
+        
+        let destinationURL: DownloadRequest.DownloadFileDestination = { _, _ in
+            let fileURL = documentsURL.appendingPathComponent(name+".zip")
+            return (fileURL, [.removePreviousFile, .createIntermediateDirectories])
+        }
+        
+        guard let url = modelURLLabel.text, url != "" else {
+            AlertController.showMessageAlert(onViewController: self, withTitle: "Please enter the Model URL", withMessage: nil)
+            return
+        }
+        
+        let (alertController, progressView) = AlertController.createAlertControllerWithProgressView(withTitle: "Please wait...", withMessage: nil)
+        self.present(alertController, animated: true, completion: nil)
+        
+        print("INFO: Downloading file from [" + url + "].")
+        Alamofire.download(url, to: destinationURL)
+            .downloadProgress { progress in
+                print("INFO: Download Progress: \(progress.fractionCompleted)")
+                progressView.setProgress(Float(progress.fractionCompleted), animated: true)
+            }
+            .responseData { response in
+                alertController.dismiss(animated: true, completion: nil)
+                if response.error == nil, let filePath = response.destinationURL?.path {
+                    print("INFO: Downloaded file to [" + filePath + "].")
+                    let permanentPath = documentsURL.appendingPathComponent("Models", isDirectory: true).appendingPathComponent(name, isDirectory: false)
+                    print("File will be unpacked to [" + permanentPath.path + "].")
+                    print("INFO: Starting unpacking...")
+                    SSZipArchive.unzipFile(atPath: filePath, toDestination: permanentPath.path)
+                    print("INFO: The file was successfully unpacked to [" + permanentPath.path + "].")
+                    let modelPath = permanentPath.appendingPathComponent("model.mlmodel", isDirectory: false)
+                    print("INFO: Compiling model [" + modelPath.path + "].")
+                    let compiledpath = ModelManager.compileModel(location: modelPath, saveTo: "Models/" + name)
+                    print("INFO: Compiled succesfully to [" + compiledpath + "].")
+                    print("INFO: Saving model to DB...")
+                    ModelManager.saveModelToDB(onlineURL: URL(string: url)!, localPermanentURL: compiledpath)
+                    print("INFO: Saved succesfully.")
+                    AlertController.showMessageAlert(onViewController: self, withTitle: "Download complete", withMessage: nil)
+                } else {
+                    AlertController.showMessageAlert(onViewController: self, withTitle: "Error :(", withMessage: "Something went wrong")
+                    print("ERROR: an error occurred while downloading the file")
+                }
         }
     }
-
 }

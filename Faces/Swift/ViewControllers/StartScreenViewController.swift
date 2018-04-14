@@ -49,5 +49,16 @@ class StartScreenViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "cameraViewController" {
+            guard ModelManager.loadModel() != nil else {
+                AlertController.showMessageAlert(onViewController: self, withTitle: "Please configure a model in the settings", withMessage: nil)
+                return false
+            }
+            return true
+        }
+        return true
+    }
+    
 
 }

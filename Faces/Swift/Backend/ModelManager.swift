@@ -13,16 +13,24 @@ import UIKit
 
 class ModelManager {
     static let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    static let model: VNCoreMLModel = loadModel()
-    static let peopleNames: [String] = getModelClasses()
-    static let people: [Person] = loadPeople()
     
-    static func loadModel() -> VNCoreMLModel {
+    static func loadModel() -> VNCoreMLModel? {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let fetchRequest: NSFetchRequest<Model> = Model.fetchRequest()
-        let models = try! context.fetch(fetchRequest)
-        let mlModel = try! MLModel(contentsOf: models[0].path!)
-        let model = try! VNCoreMLModel(for: mlModel)
-        return model
+        do {
+            let models = try context.fetch(fetchRequest)
+            guard models.count > 0, let path = models[0].path else {
+                print("ERROR: Can't load a model.")
+                return nil
+            }
+            print("INFO: Trying to load model from [" + documentsURL.appendingPathComponent(path).path + "].")
+            let mlModel = try MLModel(contentsOf: documentsURL.appendingPathComponent(path))
+            let model = try VNCoreMLModel(for: mlModel)
+            return model
+        } catch {
+            print("ERROR: Can't load a model.")
+            return nil
+        }
     }
     
     static func getModelURL() -> URL? {
@@ -36,7 +44,7 @@ class ModelManager {
         }
     }
     
-    static func saveModelToDB(onlineURL: URL, localPermanentURL: URL) {
+    static func saveModelToDB(onlineURL: URL, localPermanentURL: String) {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Model")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
@@ -57,35 +65,39 @@ class ModelManager {
         savePeopleInformationToDB()
     }
     
-    static func compileModel(location: URL) -> URL {
+    static func compileModel(location: URL, saveTo: String) -> String {
         let compiledUrl = try! MLModel.compileModel(at: location)
-        return compiledUrl
+        return moveModelDocumentsDir(from: compiledUrl, toReletivePath: saveTo)
     }
     
-//    static func moveModelToDocumentDir(from compiledUrl: URL, onlineURL: URL) {
-//        // find the app support directory
-//        let fileManager = FileManager.default
-//        let documentDirectory = try! fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: compiledUrl, create: true)
-//        // create a permanent URL in the app support directory
-//        let permanentUrl = documentDirectory.appendingPathComponent("faces_model.mlmodelc", isDirectory: false)
-//        do {
-//            // if the file exists, replace it. Otherwise, copy the file to the destination.
-//            if fileManager.fileExists(atPath: permanentUrl.path) {
-//                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
-//            } else {
-//                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
-//            }
-//            saveModelToDB(onlineURL: onlineURL, localPermanentURL: permanentUrl)
-//        } catch {
-//            print("Error during copy: \(error.localizedDescription)")
-//        }
-//    }
+    static func moveModelDocumentsDir(from compiledUrl: URL, toReletivePath relativeURL: String) -> String {
+        let destination = relativeURL + "/model.modelc"
+        let fileManager = FileManager.default
+        let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
+        // create a permanent URL in the app support directory
+        let permanentUrl = documentsURL.appendingPathComponent(destination)
+        do {
+            // if the file exists, replace it. Otherwise, copy the file to the destination.
+            if fileManager.fileExists(atPath: permanentUrl.path) {
+                _ = try fileManager.replaceItemAt(permanentUrl, withItemAt: compiledUrl)
+            } else {
+                try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
+            }
+        } catch {
+            print("Error during copy: \(error.localizedDescription)")
+        }
+        return destination
+    }
     
     static func getModelClasses() -> [String] {
         var people = [String]()
         
         // Create Classification request
-        let request = VNCoreMLRequest(model: self.model, completionHandler: {request, error in
+        guard let model = loadModel() else {
+            return []
+        }
+        let request = VNCoreMLRequest(model: model, completionHandler: {request, error in
             guard error == nil else {
                 print("ML request error: \(error!.localizedDescription)")
                 return
@@ -117,7 +129,7 @@ class ModelManager {
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
         
-        for name in peopleNames {
+        for name in getModelClasses() {
             let person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
             person.name = name
         }

@@ -29,7 +29,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
     var faces = [Face]()
     var bounds  = CGRect(x: 0, y: 0, width: 0, height: 0)
     
-    var model = ModelManager.model
+    var model = ModelManager.loadModel()!
     
     
     override func viewDidLoad() {
