@@ -65,32 +65,38 @@ class ModelSettingsTableViewController: UITableViewController {
         let (alertController, progressView) = AlertController.createAlertControllerWithProgressView(withTitle: "Please wait...", withMessage: nil)
         self.present(alertController, animated: true, completion: nil)
         
-        print("INFO: Downloading file from [" + url + "].")
+        print("[INFO] Downloading file from [" + url + "].")
         Alamofire.download(url, to: destinationURL)
             .downloadProgress { progress in
-                print("INFO: Download Progress: \(progress.fractionCompleted)")
+                print("[INFO] Download Progress: \(progress.fractionCompleted)")
                 progressView.setProgress(Float(progress.fractionCompleted), animated: true)
             }
             .responseData { response in
                 alertController.dismiss(animated: true, completion: nil)
                 if response.error == nil, let filePath = response.destinationURL?.path {
-                    print("INFO: Downloaded file to [" + filePath + "].")
+                    print("[INFO] Downloaded file to [" + filePath + "].")
                     let permanentPath = documentsURL.appendingPathComponent("Models", isDirectory: true).appendingPathComponent(name, isDirectory: false)
-                    print("File will be unpacked to [" + permanentPath.path + "].")
-                    print("INFO: Starting unpacking...")
+                    print("[INFO] File will be unpacked to [" + permanentPath.path + "].")
+                    print("[INFO] Starting unpacking...")
                     SSZipArchive.unzipFile(atPath: filePath, toDestination: permanentPath.path)
-                    print("INFO: The file was successfully unpacked to [" + permanentPath.path + "].")
+                    print("[INFO] The file was successfully unpacked to [" + permanentPath.path + "].")
                     let modelPath = permanentPath.appendingPathComponent("model.mlmodel", isDirectory: false)
-                    print("INFO: Compiling model [" + modelPath.path + "].")
+                    print("[INFO] Compiling model [" + modelPath.path + "].")
                     let compiledpath = ModelManager.compileModel(location: modelPath, saveTo: "Models/" + name)
-                    print("INFO: Compiled succesfully to [" + compiledpath + "].")
-                    print("INFO: Saving model to DB...")
+                    print("[INFO] Compiled succesfully to [" + compiledpath + "].")
+                    print("[INFO] Saving model to DB...")
                     ModelManager.saveModelToDB(onlineURL: URL(string: url)!, localPermanentURL: compiledpath)
-                    print("INFO: Saved succesfully.")
+                    print("[INFO] Saved succesfully.")
+                    print("[INFO] Saving people to DB...")
+                    let jsonPath = documentsURL.appendingPathComponent(compiledpath.replacingOccurrences(of: "model.modelc", with: "")).path + "/info.json"
+                    print(jsonPath)
+                    let personLoader = PersonInfoLoader(fromJSON: try! Data(contentsOf: URL(fileURLWithPath: jsonPath)))
+                    personLoader.getPersonInfos()
+                    print("[INFO] Saved succesfully.")
                     AlertController.showMessageAlert(onViewController: self, withTitle: "Download complete", withMessage: nil)
                 } else {
                     AlertController.showMessageAlert(onViewController: self, withTitle: "Error :(", withMessage: "Something went wrong")
-                    print("ERROR: an error occurred while downloading the file")
+                    print("[ERROR] an error occurred while downloading the file")
                 }
         }
     }

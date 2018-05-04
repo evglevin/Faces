@@ -20,15 +20,15 @@ class ModelManager {
         do {
             let models = try context.fetch(fetchRequest)
             guard models.count > 0, let path = models[0].path else {
-                print("ERROR: Can't load a model.")
+                print("[ERROR] Can't load a model.")
                 return nil
             }
-            print("INFO: Trying to load model from [" + documentsURL.appendingPathComponent(path).path + "].")
+            print("[INFO] Trying to load model from [" + documentsURL.appendingPathComponent(path).path + "].")
             let mlModel = try MLModel(contentsOf: documentsURL.appendingPathComponent(path))
             let model = try VNCoreMLModel(for: mlModel)
             return model
         } catch {
-            print("ERROR: Can't load a model.")
+            print("[ERROR] Can't load a model.")
             return nil
         }
     }
@@ -57,10 +57,10 @@ class ModelManager {
         do {
             try context.execute(deleteRequest)
             try context.save()
-            print("OK")
+            print("[INFO] Model saved to DB")
         }
         catch {
-            print("Can't save Model to DB")
+            print("[ERROR] Can't save Model to DB")
         }
         savePeopleInformationToDB()
     }
@@ -85,7 +85,7 @@ class ModelManager {
                 try fileManager.copyItem(at: compiledUrl, to: permanentUrl)
             }
         } catch {
-            print("Error during copy: \(error.localizedDescription)")
+            print("[ERROR] Error during copy: \(error.localizedDescription)")
         }
         return destination
     }
@@ -99,12 +99,12 @@ class ModelManager {
         }
         let request = VNCoreMLRequest(model: model, completionHandler: {request, error in
             guard error == nil else {
-                print("ML request error: \(error!.localizedDescription)")
+                print("[ERROR] ML request error: \(error!.localizedDescription)")
                 return
             }
             
             guard let classifications = request.results as? [VNClassificationObservation] else { 
-                print("No classifications")
+                print("[WARN] No classifications")
                 return
             }
             for classification in classifications {
@@ -119,7 +119,7 @@ class ModelManager {
         do {
             try VNImageRequestHandler(ciImage: CIImage(image: UIImage(named: "Evgeny Levin")!)!, options: [:]).perform([request])
         } catch {
-            print("ML request handler error: \(error.localizedDescription)")
+            print("[ERROR] ML request handler error: \(error.localizedDescription)")
         }
         return people
     }
@@ -139,7 +139,7 @@ class ModelManager {
             try context.save()
         }
         catch {
-            print("Can't save people to CoreData")
+            print("[ERROR] Can't save people to CoreData")
         }
     }
     

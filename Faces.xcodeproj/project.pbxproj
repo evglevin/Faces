@@ -26,6 +26,8 @@
 		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
 		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
 		B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3ADFE99206E6DE100B9DF28 /* Media.xcassets */; };
+		B3C7A2E9209CF60F00B8FD86 /* PersonInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */; };
+		B3C7A2EB209CF6F100B8FD86 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */; };
 		B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */; };
 		B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA1174208136A6003FDE2F /* AlertController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +56,8 @@
 		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
 		B3ADFE99206E6DE100B9DF28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoLoader.swift; sourceTree = "<group>"; };
+		B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
 		B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3DA1174208136A6003FDE2F /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -168,7 +172,6 @@
 				B38C51D920591FD30019832B /* Extensions */,
 				B39ADD08206966C0007462EB /* TransitionAnimations */,
 				B3234B46203F7D9B0082142A /* AppDelegate.swift */,
-				B3270CBA204094F2007A59A7 /* Face.swift */,
 			);
 			path = Swift;
 			sourceTree = "<group>";
@@ -176,7 +179,10 @@
 		B392DFC320812663007AD50A /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				B3270CBA204094F2007A59A7 /* Face.swift */,
 				B38F0A2A207C120500263B3E /* ModelManager.swift */,
+				B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */,
+				B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -369,6 +375,7 @@
 				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
+				B3C7A2E9209CF60F00B8FD86 /* PersonInfoLoader.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
 				B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
@@ -377,6 +384,7 @@
 				B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */,
 				B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */,
 				B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */,
+				B3C7A2EB209CF6F100B8FD86 /* PersonInfo.swift in Sources */,
 				B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */,
 				B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */,
 			);
