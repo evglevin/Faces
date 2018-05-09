@@ -16,6 +16,7 @@
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
+		B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349B34620A2DF120091DD2C /* SettingsManager.swift */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Text.swift */; };
@@ -26,7 +27,7 @@
 		B39ADD05206856FD007462EB /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD04206856FD007462EB /* StartScreenViewController.swift */; };
 		B39ADD0720695EF8007462EB /* CustomAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39ADD0620695EF8007462EB /* CustomAnimationController.swift */; };
 		B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3ADFE99206E6DE100B9DF28 /* Media.xcassets */; };
-		B3C7A2E9209CF60F00B8FD86 /* PersonInfoLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */; };
+		B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */; };
 		B3C7A2EB209CF6F100B8FD86 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */; };
 		B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */; };
 		B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA1174208136A6003FDE2F /* AlertController.swift */; };
@@ -46,6 +47,7 @@
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		B349B34620A2DF120091DD2C /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Text.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Text.swift"; sourceTree = "<group>"; };
@@ -56,7 +58,7 @@
 		B39ADD04206856FD007462EB /* StartScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		B39ADD0620695EF8007462EB /* CustomAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationController.swift; sourceTree = "<group>"; };
 		B3ADFE99206E6DE100B9DF28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoLoader.swift; sourceTree = "<group>"; };
+		B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoManager.swift; sourceTree = "<group>"; };
 		B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
 		B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -181,7 +183,8 @@
 			children = (
 				B3270CBA204094F2007A59A7 /* Face.swift */,
 				B38F0A2A207C120500263B3E /* ModelManager.swift */,
-				B3C7A2E8209CF60F00B8FD86 /* PersonInfoLoader.swift */,
+				B349B34620A2DF120091DD2C /* SettingsManager.swift */,
+				B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */,
 				B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */,
 			);
 			path = Backend;
@@ -375,9 +378,10 @@
 				B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */,
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
-				B3C7A2E9209CF60F00B8FD86 /* PersonInfoLoader.swift in Sources */,
+				B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Text.swift in Sources */,
 				B38F0A29207C0DA800263B3E /* PersonTableViewCell.swift in Sources */,
+				B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */,
 				B3270CBB204094F2007A59A7 /* Face.swift in Sources */,
 				B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */,
 				B395C107206D8847007DC8BF /* Faces.xcdatamodeld in Sources */,

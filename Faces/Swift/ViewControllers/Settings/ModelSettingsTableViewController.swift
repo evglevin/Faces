@@ -89,9 +89,10 @@ class ModelSettingsTableViewController: UITableViewController {
                     print("[INFO] Saved succesfully.")
                     print("[INFO] Saving people to DB...")
                     let jsonPath = documentsURL.appendingPathComponent(compiledpath.replacingOccurrences(of: "model.modelc", with: "")).path + "/info.json"
-                    print(jsonPath)
-                    let personLoader = PersonInfoLoader(fromJSON: try! Data(contentsOf: URL(fileURLWithPath: jsonPath)))
-                    personLoader.getPersonInfos()
+                    PersonInfoManager.savaToDB(fromJSON: try! Data(contentsOf: URL(fileURLWithPath: jsonPath)))
+                    print("[INFO] Saved succesfully.")
+                    print("[INFO] Saving model path to DB...")
+                    SettingsManager.savaModelPathToDB(path: compiledpath.replacingOccurrences(of: "model.modelc", with: ""))
                     print("[INFO] Saved succesfully.")
                     AlertController.showMessageAlert(onViewController: self, withTitle: "Download complete", withMessage: nil)
                 } else {

@@ -9,7 +9,8 @@
 import UIKit
 
 class PeopleTableViewController: UITableViewController {
-    var people = ModelManager.loadPeople()
+    var people = PersonInfoManager.getPersonInfoFromDB()
+    let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,12 @@ class PeopleTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        self.navigationItem.searchController = searchController
+        
+        self.tableView.backgroundView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,8 +47,14 @@ class PeopleTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "personTableCell", for: indexPath) as? PersonTableViewCell else {
             fatalError("The dequeued cell is not an instance of PersonTableViewCell.")
         }
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
         cell.nameLabel.text = people[indexPath.row].name
-        cell.faceImageView.image = UIImage(named: people[indexPath.row].name!)
+        cell.phoneLabel.text = people[indexPath.row].phone
+        cell.emailLabel.text = people[indexPath.row].email
+        cell.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + people[indexPath.row].photoTitle!).path)
+        cell.faceImageView.layer.cornerRadius = 32.5
+        cell.faceImageView.clipsToBounds = true
         return cell
     }
 
@@ -90,4 +103,15 @@ class PeopleTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension PeopleTableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+    }
+    
 }

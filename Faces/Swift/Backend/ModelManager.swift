@@ -104,7 +104,7 @@ class ModelManager {
             }
             
             guard let classifications = request.results as? [VNClassificationObservation] else { 
-                print("[WARN] No classifications")
+                print("[WARNING] No classifications")
                 return
             }
             for classification in classifications {
@@ -151,9 +151,9 @@ class ModelManager {
         }
     }
     
-    static func loadPeople() -> [Person] {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
-        let people = try! context.fetch(fetchRequest)
-        return people
-    }
+//    static func loadPeople() -> [Person] {
+//        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+//        let people = try! context.fetch(fetchRequest)
+//        return people
+//    }
 }
