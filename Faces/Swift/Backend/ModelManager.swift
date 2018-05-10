@@ -62,7 +62,6 @@ class ModelManager {
         catch {
             print("[ERROR] Can't save Model to DB")
         }
-        savePeopleInformationToDB()
     }
     
     static func compileModel(location: URL, saveTo: String) -> String {
@@ -124,32 +123,25 @@ class ModelManager {
         return people
     }
     
-    static func savePeopleInformationToDB() {
-        
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        
-        for name in getModelClasses() {
-            let person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
-            person.name = name
-        }
-        
-        do {
-            try context.execute(deleteRequest)
-            try context.save()
-        }
-        catch {
-            print("[ERROR] Can't save people to CoreData")
-        }
-    }
+//    static func savePeopleInformationToDB() {
+//        
+//        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Person")
+//        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+//        
+//        for name in getModelClasses() {
+//            let person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
+//            person.name = name
+//        }
+//        
+//        do {
+//            try context.execute(deleteRequest)
+//            try context.save()
+//        }
+//        catch {
+//            print("[ERROR] Can't save people to CoreData")
+//        }
+//    }
     
-    static func printPeople() {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
-        let people = try! context.fetch(fetchRequest)
-        for person in people {
-            print(person.name ?? "Unknown")
-        }
-    }
     
 //    static func loadPeople() -> [Person] {
 //        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()

@@ -26,6 +26,7 @@ class PeopleTableViewController: UITableViewController {
         self.navigationItem.searchController = searchController
         
         self.tableView.backgroundView = UIView()
+        self.tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,9 +50,9 @@ class PeopleTableViewController: UITableViewController {
         }
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        cell.nameLabel.text = people[indexPath.row].name
+        cell.nameLabel.text = "\(people[indexPath.row].firstName ?? "") \(people[indexPath.row].secondName ?? "")"
+        cell.companyLabel.text = people[indexPath.row].company
         cell.phoneLabel.text = people[indexPath.row].phone
-        cell.emailLabel.text = people[indexPath.row].email
         cell.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + people[indexPath.row].photoTitle!).path)
         cell.faceImageView.layer.cornerRadius = 32.5
         cell.faceImageView.clipsToBounds = true

@@ -24,7 +24,9 @@ class PersonInfoManager {
             for json in anyObj as! [AnyObject] {
                 let person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
                 person.id  =  Int64((json["id"]  as AnyObject? as? Int) ?? 0)
-                person.name = (json["name"] as AnyObject? as? String) ?? ""
+                person.firstName = (json["first_name"] as AnyObject? as? String) ?? ""
+                person.secondName = (json["second_name"] as AnyObject? as? String) ?? ""
+                person.company = (json["company"] as AnyObject? as? String) ?? ""
                 person.phone = (json["phone"] as AnyObject? as? String) ?? ""
                 person.email = (json["email"] as AnyObject? as? String) ?? ""
                 person.information = (json["information"] as AnyObject? as? String) ?? ""
@@ -43,6 +45,7 @@ class PersonInfoManager {
     static func getPersonInfoFromDB() -> [Person] {
         let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
         let people = try! context.fetch(fetchRequest)
+        print(people)
         return people
     }
 }

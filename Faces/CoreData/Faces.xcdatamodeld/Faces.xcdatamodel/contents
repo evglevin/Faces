@@ -5,19 +5,21 @@
         <attribute name="url" optional="YES" attributeType="URI" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
+        <attribute name="company" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="information" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="secondName" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Settings" representedClassName="Settings" syncable="YES" codeGenerationType="class">
         <attribute name="modelPath" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Model" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="Person" positionX="-54" positionY="0" width="128" height="135"/>
+        <element name="Person" positionX="-54" positionY="0" width="128" height="165"/>
         <element name="Settings" positionX="-54" positionY="0" width="128" height="60"/>
     </elements>
 </model>

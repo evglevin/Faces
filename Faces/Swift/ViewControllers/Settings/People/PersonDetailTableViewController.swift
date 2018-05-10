@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-class PersonDetailTableViewController: UITableViewController {
+class PersonDetailTableViewController: UITableViewController, CNContactViewControllerDelegate {
     @IBOutlet weak var faceImageView: UIImageView!
     @IBOutlet weak var phoneCell: UITableViewCell!
     @IBOutlet weak var emailCell: UITableViewCell!
     @IBOutlet weak var informationCell: UITableViewCell!
+    @IBOutlet weak var companyLabel: UILabel!
     
     var person: Person?
     
@@ -27,14 +30,18 @@ class PersonDetailTableViewController: UITableViewController {
         
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        self.navigationItem.title = person?.name
+        self.navigationItem.title = "\(person?.firstName ?? "") \(person?.secondName ?? "")"
         self.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person?.photoTitle!)!).path)
         faceImageView.layer.cornerRadius = 35
         faceImageView.clipsToBounds = true
         
+        self.companyLabel.text = person?.company
         self.phoneCell.textLabel?.text = person?.phone
         self.emailCell.textLabel?.text = person?.email
+        self.informationCell.textLabel?.numberOfLines = 0
         self.informationCell.textLabel?.text = person?.information
+        
+        self.tableView.tableFooterView = UIView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -113,14 +120,31 @@ class PersonDetailTableViewController: UITableViewController {
     }
     
     func showPhoneAlert() {
-        let ac = UIAlertController(title: nil, message: "Select an action", preferredStyle: .actionSheet)
-        print(person?.phone ?? "")
-        let call = UIAlertAction(title: "Call: \(person?.phone ?? "")", style: .default, handler: { _ in
+        let ac = UIAlertController(title: nil, message: "\(person?.phone ?? "")", preferredStyle: .actionSheet)
+        let call = UIAlertAction(title: "Call", style: .default, handler: { _ in
             self.person?.phone?.makeAColl()
+        })
+        let createContact = UIAlertAction(title: "Add contact", style: .default, handler: { _ in
+            let store = CNContactStore()
+            let contact = CNMutableContact()
+            let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (self.person?.phone?.onlyDigits())!))
+            let workEmail = CNLabeledValue(label: CNLabelWork, value: self.person?.email! as! NSString)
+            
+            contact.phoneNumbers = [phone]
+            contact.emailAddresses = [workEmail]
+            contact.givenName = (self.person?.firstName)!
+            contact.familyName = (self.person?.secondName)!
+            contact.imageData = UIImagePNGRepresentation(self.faceImageView.image!)
+            let controller = CNContactViewController(forUnknownContact: contact)
+            controller.contactStore = store
+            controller.delegate = self
+            self.navigationController?.setNavigationBarHidden(false, animated: true)
+            self.navigationController?.pushViewController(controller, animated: true)
         })
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         ac.addAction(cancel)
         ac.addAction(call)
+        ac.addAction(createContact)
         present(ac, animated: true, completion: nil)
     }
 

@@ -206,10 +206,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="emailLabel" destination="iYF-sx-sSg" id="jvn-na-1ry"/>
+                                    <outlet property="companyLabel" destination="hMh-if-8ix" id="whQ-VL-Xus"/>
                                     <outlet property="faceImageView" destination="f6v-BR-r0j" id="D0g-y6-uYg"/>
                                     <outlet property="nameLabel" destination="bh8-lD-Epc" id="d7Q-LD-JPL"/>
-                                    <outlet property="phoneLabel" destination="hMh-if-8ix" id="whQ-VL-Xus"/>
+                                    <outlet property="phoneLabel" destination="iYF-sx-sSg" id="jvn-na-1ry"/>
                                     <segue destination="Fep-B5-sav" kind="show" identifier="personDetailSegue" id="afB-Pk-vHZ"/>
                                 </connections>
                             </tableViewCell>
@@ -249,10 +249,19 @@
                                                         <constraint firstAttribute="width" constant="70" id="jcG-7v-ShZ"/>
                                                     </constraints>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-VH-fDT">
+                                                    <rect key="frame" x="103" y="40" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="ObC-VH-fDT" firstAttribute="top" secondItem="i20-vL-HaY" secondAttribute="top" constant="40" id="205-Nn-qkh"/>
+                                                <constraint firstItem="ObC-VH-fDT" firstAttribute="leading" secondItem="6BZ-We-bBy" secondAttribute="trailing" constant="17" id="UxY-JG-bZY"/>
                                                 <constraint firstItem="6BZ-We-bBy" firstAttribute="top" secondItem="i20-vL-HaY" secondAttribute="top" constant="15" id="XSW-cR-5b3"/>
                                                 <constraint firstItem="6BZ-We-bBy" firstAttribute="leading" secondItem="i20-vL-HaY" secondAttribute="leading" constant="16" id="ZHN-rp-XBT"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ObC-VH-fDT" secondAttribute="trailing" constant="20" symbolic="YES" id="aLA-pN-39q"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -301,6 +310,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="companyLabel" destination="ObC-VH-fDT" id="evW-KT-Kry"/>
                         <outlet property="emailCell" destination="F1Q-0R-La5" id="MKH-Te-bje"/>
                         <outlet property="faceImageView" destination="6BZ-We-bBy" id="qcX-ma-tZZ"/>
                         <outlet property="informationCell" destination="iAg-wb-ved" id="VBS-Mm-7Dc"/>
