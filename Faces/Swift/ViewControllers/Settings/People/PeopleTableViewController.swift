@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Contacts
+import ContactsUI
 
-class PeopleTableViewController: UITableViewController {
+class PeopleTableViewController: UITableViewController, CNContactViewControllerDelegate {
     var people = PersonInfoManager.getPersonInfoFromDB()
     let searchController = UISearchController(searchResultsController: nil)
 
@@ -57,6 +59,11 @@ class PeopleTableViewController: UITableViewController {
         cell.faceImageView.layer.cornerRadius = 32.5
         cell.faceImageView.clipsToBounds = true
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        showPersonDetail(person: people[indexPath.row])
+        
     }
 
     /*
@@ -107,6 +114,28 @@ class PeopleTableViewController: UITableViewController {
             }
         }
     }
+    
+    func showPersonDetail(person: Person) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let store = CNContactStore()
+        let contact = CNMutableContact()
+        let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (person.phone?.onlyDigits())!))
+        let workEmail = CNLabeledValue(label: CNLabelWork, value: person.email! as! NSString)
+        
+        contact.phoneNumbers = [phone]
+        contact.emailAddresses = [workEmail]
+        contact.givenName = (person.firstName)!
+        contact.familyName = (person.secondName)!
+        contact.organizationName = (person.company)!
+        contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person.photoTitle!)).path)!)
+        contact.note = (person.information)!
+        let controller = CNContactViewController(forUnknownContact: contact)
+        controller.contactStore = store
+        controller.delegate = self
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+
 }
 
 
@@ -121,3 +150,37 @@ extension PeopleTableViewController: UISearchResultsUpdating {
     }
     
 }
+
+extension String {
+    
+    enum RegularExpressions: String {
+        case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
+    }
+    
+    func isValid(regex: RegularExpressions) -> Bool {
+        return isValid(regex: regex.rawValue)
+    }
+    
+    func isValid(regex: String) -> Bool {
+        let matches = range(of: regex, options: .regularExpression)
+        return matches != nil
+    }
+    
+    func onlyDigits() -> String {
+        let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
+        return String(String.UnicodeScalarView(filtredUnicodeScalars))
+    }
+    
+    func makeAColl() {
+        if isValid(regex: .phone) {
+            if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
+                if #available(iOS 10, *) {
+                    UIApplication.shared.open(url)
+                } else {
+                    UIApplication.shared.openURL(url)
+                }
+            }
+        }
+    }
+}
+

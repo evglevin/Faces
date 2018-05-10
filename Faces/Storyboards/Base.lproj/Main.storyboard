@@ -210,7 +210,6 @@
                                     <outlet property="faceImageView" destination="f6v-BR-r0j" id="D0g-y6-uYg"/>
                                     <outlet property="nameLabel" destination="bh8-lD-Epc" id="d7Q-LD-JPL"/>
                                     <outlet property="phoneLabel" destination="iYF-sx-sSg" id="jvn-na-1ry"/>
-                                    <segue destination="Fep-B5-sav" kind="show" identifier="personDetailSegue" id="afB-Pk-vHZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
