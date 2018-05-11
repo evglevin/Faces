@@ -25,7 +25,7 @@ class PersonInfoManager {
                 let person = NSEntityDescription.insertNewObject(forEntityName: "Person", into: context) as! Person
                 person.id  =  Int64((json["id"]  as AnyObject? as? Int) ?? 0)
                 person.firstName = (json["first_name"] as AnyObject? as? String) ?? ""
-                person.secondName = (json["second_name"] as AnyObject? as? String) ?? ""
+                person.lastName = (json["second_name"] as AnyObject? as? String) ?? ""
                 person.company = (json["company"] as AnyObject? as? String) ?? ""
                 person.phone = (json["phone"] as AnyObject? as? String) ?? ""
                 person.email = (json["email"] as AnyObject? as? String) ?? ""

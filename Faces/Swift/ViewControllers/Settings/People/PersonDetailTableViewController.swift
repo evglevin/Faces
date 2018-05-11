@@ -30,7 +30,7 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        self.navigationItem.title = "\(person?.firstName ?? "") \(person?.secondName ?? "")"
+        self.navigationItem.title = "\(person?.firstName ?? "") \(person?.lastName ?? "")"
         self.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person?.photoTitle!)!).path)
         faceImageView.layer.cornerRadius = 35
         faceImageView.clipsToBounds = true
@@ -133,7 +133,7 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
             contact.phoneNumbers = [phone]
             contact.emailAddresses = [workEmail]
             contact.givenName = (self.person?.firstName)!
-            contact.familyName = (self.person?.secondName)!
+            contact.familyName = (self.person?.lastName)!
             contact.organizationName = (self.person?.company)!
             contact.imageData = UIImagePNGRepresentation(self.faceImageView.image!)
             contact.note = (self.person?.information)!

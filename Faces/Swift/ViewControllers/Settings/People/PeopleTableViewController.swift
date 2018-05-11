@@ -12,6 +12,7 @@ import ContactsUI
 
 class PeopleTableViewController: UITableViewController, CNContactViewControllerDelegate {
     var people = PersonInfoManager.getPersonInfoFromDB()
+    var searchResults = [Person]()
     let searchController = UISearchController(searchResultsController: nil)
 
     override func viewDidLoad() {
@@ -23,11 +24,16 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        self.searchResults = people
+        
+        // Configuring the search bar
         searchController.searchResultsUpdater = self
         searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
         self.navigationItem.searchController = searchController
         
-        self.tableView.backgroundView = UIView()
+        //self.tableView.backgroundView = UIView()
         self.tableView.tableFooterView = UIView()
     }
 
@@ -43,7 +49,7 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        return searchResults.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,17 +58,17 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         }
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
-        cell.nameLabel.text = "\(people[indexPath.row].firstName ?? "") \(people[indexPath.row].secondName ?? "")"
-        cell.companyLabel.text = people[indexPath.row].company
-        cell.phoneLabel.text = people[indexPath.row].phone
-        cell.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + people[indexPath.row].photoTitle!).path)
+        cell.nameLabel.text = "\(searchResults[indexPath.row].firstName ?? "") \(searchResults[indexPath.row].lastName ?? "")"
+        cell.companyLabel.text = searchResults[indexPath.row].company
+        cell.phoneLabel.text = searchResults[indexPath.row].phone
+        cell.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + searchResults[indexPath.row].photoTitle!).path)
         cell.faceImageView.layer.cornerRadius = 32.5
         cell.faceImageView.clipsToBounds = true
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showPersonDetail(person: people[indexPath.row])
+        showPersonDetail(person: searchResults[indexPath.row])
         
     }
 
@@ -125,7 +131,7 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         contact.phoneNumbers = [phone]
         contact.emailAddresses = [workEmail]
         contact.givenName = (person.firstName)!
-        contact.familyName = (person.secondName)!
+        contact.familyName = (person.lastName)!
         contact.organizationName = (person.company)!
         contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person.photoTitle!)).path)!)
         contact.note = (person.information)!
@@ -142,7 +148,12 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
 
 extension PeopleTableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        
+        if searchController.searchBar.text! == "" {
+            searchResults = people
+        } else {
+            searchResults = people.filter {($0.firstName! + " " + $0.lastName! + " " + $0.company!).lowercased().contains(searchController.searchBar.text!.lowercased()) }
+        }
+        self.tableView.reloadData()
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
