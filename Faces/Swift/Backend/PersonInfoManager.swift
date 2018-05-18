@@ -1,5 +1,5 @@
 //
-//  JSONHelper.swift
+//  PersonInfoManager.swift
 //  Faces
 //
 //  Created by Евгений Левин on 04.05.2018.
@@ -42,10 +42,16 @@ class PersonInfoManager {
         }
     }
     
-    static func getPersonInfoFromDB() -> [Person] {
+    static func getPeopleInfoFromDB() -> [Person] {
         let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
         let people = try! context.fetch(fetchRequest)
-        print(people)
         return people
+    }
+    
+    static func getPerson(byId id: Int) -> Person {
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id == \(id)")
+        let people = try! context.fetch(fetchRequest)
+        return people[0]
     }
 }

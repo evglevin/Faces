@@ -71,7 +71,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
             .subscribe { [unowned self] _ in
                 
                 self.faces.filter{ $0.updated.isAfter(seconds: 1.5) && !$0.hidden }.forEach{ face in
-                    print("Hide node: \(face.name)")
+                    print("Hide node: \(face.id)")
                     Async.main { face.node.hide() }
                 }
             }
@@ -222,7 +222,7 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         }
         
         let second = classes[1]
-        let name = person.identifier
+        let id = Int(person.identifier)!
         print("""
             [INFO]
                 FIRST
@@ -230,25 +230,25 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
                 SECOND
                 confidence: \(second.confidence) for \(second.identifier)
             """)
-        if person.confidence < 0.60 || person.identifier == "unknown" {
+        if person.confidence < 0.60 || person.identifier == "0" {
             print("[INFO] Not so sure")
             return
         }
         
         // Filter for existent face
-        let results = self.faces.filter{ $0.name == name && $0.timestamp != frame.timestamp }
+        let results = self.faces.filter{ $0.id == id && $0.timestamp != frame.timestamp }
             .sorted{ $0.node.position.distance(toVector: position) < $1.node.position.distance(toVector: position) }
         
         // Create new face
         guard let existentFace = results.first else {
-            let node = SCNNode(withText: name, position: position)
+            let node = SCNNode(withPerson: PersonInfoManager.getPerson(byId: id), position: position)
             
             Async.main {
                 self.sceneView.scene.rootNode.addChildNode(node)
                 node.show()
                 
             }
-            let face = Face.init(name: name, node: node, timestamp: frame.timestamp)
+            let face = Face(id: id, node: node, timestamp: frame.timestamp)
             self.faces.append(face)
             return
         }

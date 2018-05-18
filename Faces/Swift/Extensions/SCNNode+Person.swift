@@ -12,7 +12,9 @@ import ARKit
 import Async
 
 public extension SCNNode {
-    convenience init(withText text : String, position: SCNVector3) {
+    convenience init(withPerson person : Person, position: SCNVector3) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        
         let bubbleDepth : Float = 0.01 // the 'depth' of 3D text
         
         // TEXT BILLBOARD CONSTRAINT
@@ -20,7 +22,7 @@ public extension SCNNode {
         billboardConstraint.freeAxes = SCNBillboardAxis.Y
         
         // BUBBLE-TEXT
-        let bubble = SCNText(string: text, extrusionDepth: CGFloat(bubbleDepth))
+        let bubble = SCNText(string: person.firstName! + " " + person.lastName!, extrusionDepth: CGFloat(bubbleDepth))
         bubble.font = UIFont(name: "Futura", size: 0.18)?.withTraits(traits: .traitBold)
         bubble.alignmentMode = kCAAlignmentCenter
         bubble.firstMaterial?.diffuse.contents = UIColor.green
@@ -39,7 +41,7 @@ public extension SCNNode {
         
         // IMAGE NODE
         let material = SCNMaterial()
-        material.diffuse.contents = UIImage.init(named: text)
+        material.diffuse.contents = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + person.photoTitle!).path)
         material.isDoubleSided = true
         let box = SCNBox.init(width: 0.5, height: 0.5, length: 0.01, chamferRadius: 0)
         let boxNode = SCNNode(geometry: box)

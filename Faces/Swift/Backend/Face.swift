@@ -10,7 +10,7 @@ import Foundation
 import ARKit
 
 class Face {
-    let name: String
+    let id: Int
     let node: SCNNode
     var hidden: Bool {
         get {
@@ -25,8 +25,8 @@ class Face {
     }
     private(set) var updated = Date()
     
-    init(name: String, node: SCNNode, timestamp: TimeInterval) {
-        self.name = name
+    init(id: Int, node: SCNNode, timestamp: TimeInterval) {
+        self.id = id
         self.node = node
         self.timestamp = timestamp
     }

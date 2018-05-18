@@ -11,7 +11,7 @@ import Contacts
 import ContactsUI
 
 class PeopleTableViewController: UITableViewController, CNContactViewControllerDelegate {
-    var people = PersonInfoManager.getPersonInfoFromDB()
+    var people = PersonInfoManager.getPeopleInfoFromDB()
     var searchResults = [Person]()
     let searchController = UISearchController(searchResultsController: nil)
 
