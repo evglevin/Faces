@@ -12,7 +12,7 @@ class StartScreenViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
-    @IBOutlet weak var updateModelButton: UIButton!
+    @IBOutlet weak var peopleButton: UIButton!
     
     
     // MARK: Animations

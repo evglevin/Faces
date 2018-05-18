@@ -43,26 +43,6 @@
                                             <segue destination="Dvt-6D-h1A" kind="show" identifier="modelSettingsTableViewController" id="b5v-Je-067"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="U47-rv-5gW" style="IBUITableViewCellStyleDefault" id="h5n-cm-AeY">
-                                        <rect key="frame" x="0.0" y="79" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="h5n-cm-AeY" id="6Ef-mo-dWX">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="People" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="U47-rv-5gW">
-                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="LdH-jy-uHc" kind="show" id="FBc-fM-Euv"/>
-                                        </connections>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -82,7 +62,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Mk-oZ-nsF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="aIQ-6g-Rkf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-791" y="786"/>
+            <point key="canvasLocation" x="-791" y="800"/>
         </scene>
         <!--Start Screen View Controller-->
         <scene sceneID="4ux-Fg-5te">
@@ -109,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bex-DI-luw">
-                                <rect key="frame" x="134" y="375" width="107" height="48"/>
+                                <rect key="frame" x="134" y="431" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,12 +101,27 @@
                                     <segue destination="iah-8f-srQ" kind="show" identifier="settingsTableViewController" id="vlm-7v-1Qz"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soh-cb-XxV">
+                                <rect key="frame" x="143" y="375" width="89" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="People">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" cocoaTouchSystemColor="lightTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Cz3-Sd-qTW" kind="show" id="1oF-mS-yBy"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.26517671346664429" green="0.41094815731048584" blue="0.69154804944992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="soh-cb-XxV" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="CFP-Se-3Kj"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerY" secondItem="zec-7N-PGF" secondAttribute="centerY" id="EeW-TQ-TZ7"/>
                             <constraint firstItem="Wji-hf-fP9" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="Q1F-Mt-rnk"/>
-                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="7.5" id="dd6-ty-Ap3"/>
+                            <constraint firstItem="soh-cb-XxV" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="7.5" id="Vg5-dq-naE"/>
+                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="soh-cb-XxV" secondAttribute="bottom" constant="8" id="aLG-DC-kmI"/>
                             <constraint firstItem="bex-DI-luw" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="e9y-Um-CGx"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="k9I-Ts-XPU"/>
                             <constraint firstItem="Wji-hf-fP9" firstAttribute="top" secondItem="zec-7N-PGF" secondAttribute="top" constant="110" id="owv-4h-E2I"/>
@@ -137,6 +132,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="J3N-3c-dLR" id="Nkn-vU-aM9"/>
                         <outlet property="navigationItem" destination="zgt-vu-2W9" id="buo-6K-ejb"/>
+                        <outlet property="peopleButton" destination="soh-cb-XxV" id="5KA-CV-WqO"/>
                         <outlet property="settingsButton" destination="bex-DI-luw" id="ezQ-7j-WER"/>
                     </connections>
                 </viewController>
@@ -218,10 +214,18 @@
                             <outlet property="delegate" destination="LdH-jy-uHc" id="vgo-Yf-2Ht"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="People" id="dWE-6F-gAX">
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="cRA-5m-ODM">
+                            <connections>
+                                <segue destination="55T-VG-9MO" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="z6G-YU-JbE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPb-MV-P12" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="55T-VG-9MO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="1560"/>
+            <point key="canvasLocation" x="932" y="-663.41829085457277"/>
         </scene>
         <!--Person Detail Table View Controller-->
         <scene sceneID="lwI-te-WaM">
@@ -318,7 +322,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEi-vQ-kY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="881" y="1559"/>
+            <point key="canvasLocation" x="1884" y="-663"/>
         </scene>
         <!--Model-->
         <scene sceneID="TGD-uB-L81">
@@ -383,7 +387,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jo1-dc-HLV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="786"/>
+            <point key="canvasLocation" x="-7" y="799"/>
         </scene>
         <!--Camera View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -444,7 +448,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVM-Jj-Hb3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1572" y="786"/>
+            <point key="canvasLocation" x="-1572" y="801"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xOA-ej-9tK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cz3-Sd-qTW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XOF-IX-pYj">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LdH-jy-uHc" kind="relationship" relationship="rootViewController" id="cgS-jD-g7g"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2A2-2d-wsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7.2000000000000002" y="-663.41829085457277"/>
         </scene>
     </scenes>
 </document>
