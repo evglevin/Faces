@@ -52,7 +52,7 @@ class StartScreenViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "cameraViewController" {
             guard ModelManager.loadModel() != nil else {
-                AlertController.showMessageAlert(onViewController: self, withTitle: "Please configure a model in the settings", withMessage: nil)
+                AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Please configure a model in the settings", comment: ""), withMessage: nil)
                 return false
             }
             return true

@@ -17,6 +17,8 @@
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
 		B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349B34620A2DF120091DD2C /* SettingsManager.swift */; };
+		B352216820B3551B001D9C17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B352216620B3551B001D9C17 /* InfoPlist.strings */; };
+		B352216B20B3551B001D9C17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B352216920B3551B001D9C17 /* Localizable.strings */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Person.swift */; };
@@ -49,6 +51,9 @@
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B349B34620A2DF120091DD2C /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		B352215920B31E80001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		B352216720B3551B001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B352216A20B3551B001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Person.swift"; sourceTree = "<group>"; };
@@ -215,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				B3234B54203F7D9B0082142A /* Info.plist */,
+				B352216920B3551B001D9C17 /* Localizable.strings */,
+				B352216620B3551B001D9C17 /* InfoPlist.strings */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -298,6 +305,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = B3234B3A203F7D9B0082142A;
 			productRefGroup = B3234B44203F7D9B0082142A /* Products */;
@@ -315,7 +323,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */,
+				B352216820B3551B001D9C17 /* InfoPlist.strings in Resources */,
 				B3234B5B203F7E280082142A /* .gitignore in Resources */,
+				B352216B20B3551B001D9C17 /* Localizable.strings in Resources */,
 				B3234B49203F7D9B0082142A /* art.scnassets in Resources */,
 				B3234B53203F7D9B0082142A /* LaunchScreen.storyboard in Resources */,
 				B3234B4E203F7D9B0082142A /* Main.storyboard in Resources */,
@@ -405,6 +415,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				B3234B4D203F7D9B0082142A /* Base */,
+				B352215920B31E80001D9C17 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -417,6 +428,22 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		B352216620B3551B001D9C17 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B352216720B3551B001D9C17 /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B352216920B3551B001D9C17 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B352216A20B3551B001D9C17 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -425,6 +452,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -487,6 +515,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

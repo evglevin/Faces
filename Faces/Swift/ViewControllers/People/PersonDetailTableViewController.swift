@@ -121,10 +121,10 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
     
     func showPhoneAlert() {
         let ac = UIAlertController(title: nil, message: "\(person?.phone ?? "")", preferredStyle: .actionSheet)
-        let call = UIAlertAction(title: "Call", style: .default, handler: { _ in
+        let call = UIAlertAction(title: NSLocalizedString("Call", comment: ""), style: .default, handler: { _ in
             self.person?.phone?.makeAColl()
         })
-        let createContact = UIAlertAction(title: "Add contact", style: .default, handler: { _ in
+        let createContact = UIAlertAction(title: NSLocalizedString("Add contact", comment: ""), style: .default, handler: { _ in
             let store = CNContactStore()
             let contact = CNMutableContact()
             let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (self.person?.phone?.onlyDigits())!))
@@ -143,7 +143,7 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
             self.navigationController?.setNavigationBarHidden(false, animated: true)
             self.navigationController?.pushViewController(controller, animated: true)
         })
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
         ac.addAction(cancel)
         ac.addAction(call)
         ac.addAction(createContact)
