@@ -26,7 +26,7 @@
 		B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3ADFE99206E6DE100B9DF28 /* Media.xcassets */; };
 		B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */; };
 		B3C7A2EB209CF6F100B8FD86 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */; };
-		B3C900F620B375A0002DC225 /* Enum+String+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C900F520B375A0002DC225 /* Enum+String+Language.swift */; };
+		B3C900F620B375A0002DC225 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C900F520B375A0002DC225 /* Language.swift */; };
 		B3C900F820B37D74002DC225 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C900F720B37D74002DC225 /* LanguageTableViewController.swift */; };
 		B3C9010920B422A1002DC225 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C9010720B422A1002DC225 /* Localizable.strings */; };
 		B3C9011020B4236F002DC225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C9010C20B4236F002DC225 /* Main.storyboard */; };
@@ -61,7 +61,7 @@
 		B3ADFE99206E6DE100B9DF28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoManager.swift; sourceTree = "<group>"; };
 		B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
-		B3C900F520B375A0002DC225 /* Enum+String+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+String+Language.swift"; sourceTree = "<group>"; };
+		B3C900F520B375A0002DC225 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		B3C900F720B37D74002DC225 /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
 		B3C9010820B422A1002DC225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3C9010B20B422E0002DC225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -165,7 +165,6 @@
 				B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */,
 				B38C51D620591FB40019832B /* SCNVector3+Distance.swift */,
 				B38C51DA205920410019832B /* SCNNode+Person.swift */,
-				B3C900F520B375A0002DC225 /* Enum+String+Language.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -201,6 +200,7 @@
 				B349B34620A2DF120091DD2C /* SettingsManager.swift */,
 				B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */,
 				B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */,
+				B3C900F520B375A0002DC225 /* Language.swift */,
 			);
 			path = Backend;
 			sourceTree = "<group>";
@@ -410,7 +410,7 @@
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B3F7877220A399AA00559ABA /* PersonDetailTableViewController.swift in Sources */,
 				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
-				B3C900F620B375A0002DC225 /* Enum+String+Language.swift in Sources */,
+				B3C900F620B375A0002DC225 /* Language.swift in Sources */,
 				B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Person.swift in Sources */,
 				B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */,

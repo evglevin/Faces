@@ -5,4 +5,6 @@
 "Please wait..." = "Пожалуйтса, подождите...";
 "Download complete" = "Загрузка завершена";
 "Please configure a model in the settings" = "Пожалуйста, настройте модель в параметрах приложения";
-
+"OK" = "ОК";
+"Please restart the application to apply the settings" = "Пожалуйста, перезапустите приложение для применения настроек";
+"Restart required" = "Требуется перезапуск";

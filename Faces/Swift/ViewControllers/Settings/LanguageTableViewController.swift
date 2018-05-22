@@ -10,12 +10,10 @@ import UIKit
 
 class LanguageTableViewController: UITableViewController {
     
-    //let languages = ["English", "Русский"]
-
-    
     @IBOutlet weak var englishCell: UITableViewCell!
     @IBOutlet weak var russianCell: UITableViewCell!
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,14 +55,18 @@ class LanguageTableViewController: UITableViewController {
             russianCell.accessoryType = .checkmark
             englishCell.accessoryType = .none
             Language.language = Language.russian
-            //Localize.setCurrentLanguage("ru", restartFromRoot: StartScreenViewController)
         default:
             tableView.deselectRow(at: indexPath, animated: true)
             englishCell.accessoryType = .checkmark
             russianCell.accessoryType = .none
             Language.language = Language.english
-            //Localize.setCurrentLanguage("en", restartFromRoot: StartScreenViewController)
         }
+        AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Restart required", comment: ""),
+                                         withMessage: NSLocalizedString("Please restart the application to apply the settings", comment: ""))
+    }
+    
+    func refreshlabels() {
+        
     }
 
 

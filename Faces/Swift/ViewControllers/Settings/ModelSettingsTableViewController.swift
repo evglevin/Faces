@@ -58,11 +58,11 @@ class ModelSettingsTableViewController: UITableViewController {
         }
         
         guard let url = modelURLLabel.text, url != "" else {
-            AlertController.showMessageAlert(onViewController: self, withTitle: "Please enter the Model URL".localized, withMessage: nil)
+            AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Please enter the Model URL", comment: ""), withMessage: nil)
             return
         }
         
-        let (alertController, progressView) = AlertController.createAlertControllerWithProgressView(withTitle: "Please wait...".localized, withMessage: nil)
+        let (alertController, progressView) = AlertController.createAlertControllerWithProgressView(withTitle: NSLocalizedString("Please wait...", comment: ""), withMessage: nil)
         self.present(alertController, animated: true, completion: nil)
         
         print("[INFO] Downloading file from [" + url + "].")
@@ -94,7 +94,7 @@ class ModelSettingsTableViewController: UITableViewController {
                     print("[INFO] Saving model path to DB...")
                     SettingsManager.savaModelPathToDB(path: compiledpath.replacingOccurrences(of: "model.modelc", with: ""))
                     print("[INFO] Saved succesfully.")
-                    AlertController.showMessageAlert(onViewController: self, withTitle: "Download complete".localized, withMessage: nil)
+                    AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Download complete", comment: ""), withMessage: nil)
                 } else {
                     AlertController.showMessageAlert(onViewController: self, withTitle: "Error :(", withMessage: "Something went wrong")
                     print("[ERROR] an error occurred while downloading the file")
