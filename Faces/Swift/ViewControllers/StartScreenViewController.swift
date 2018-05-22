@@ -26,7 +26,6 @@ class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -52,7 +51,7 @@ class StartScreenViewController: UIViewController {
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if identifier == "cameraViewController" {
             guard ModelManager.loadModel() != nil else {
-                AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Please configure a model in the settings", comment: ""), withMessage: nil)
+                AlertController.showMessageAlert(onViewController: self, withTitle: "Please configure a model in the settings".localized, withMessage: nil)
                 return false
             }
             return true

@@ -11,7 +11,7 @@ import UIKit
 class AlertController {
     static func createAlertControllerWithProgressView(withTitle title: String?, withMessage message: String?) -> (UIAlertController, UIProgressView) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel".localized, comment: ""), style: .cancel, handler: nil))
         
         let progressView = UIProgressView(progressViewStyle: .bar)
         progressView.frame = CGRect(x: 0, y: 57, width: 270, height: 0)

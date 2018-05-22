@@ -64,6 +64,7 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         cell.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + searchResults[indexPath.row].photoTitle!).path)
         cell.faceImageView.layer.cornerRadius = 32.5
         cell.faceImageView.clipsToBounds = true
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

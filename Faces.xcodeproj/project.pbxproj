@@ -10,15 +10,11 @@
 		55F3B7E72DA74BE1A42C848E /* Pods_Faces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B7301C3F20227D5DF32F999 /* Pods_Faces.framework */; };
 		B3234B47203F7D9B0082142A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3234B46203F7D9B0082142A /* AppDelegate.swift */; };
 		B3234B49203F7D9B0082142A /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B3234B48203F7D9B0082142A /* art.scnassets */; };
-		B3234B4E203F7D9B0082142A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3234B4C203F7D9B0082142A /* Main.storyboard */; };
-		B3234B53203F7D9B0082142A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */; };
 		B3234B5B203F7E280082142A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B3234B5A203F7E280082142A /* .gitignore */; };
 		B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CB620409402007A59A7 /* CameraViewController.swift */; };
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
 		B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349B34620A2DF120091DD2C /* SettingsManager.swift */; };
-		B352216820B3551B001D9C17 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B352216620B3551B001D9C17 /* InfoPlist.strings */; };
-		B352216B20B3551B001D9C17 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B352216920B3551B001D9C17 /* Localizable.strings */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Person.swift */; };
@@ -30,6 +26,11 @@
 		B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3ADFE99206E6DE100B9DF28 /* Media.xcassets */; };
 		B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */; };
 		B3C7A2EB209CF6F100B8FD86 /* PersonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */; };
+		B3C900F620B375A0002DC225 /* Enum+String+Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C900F520B375A0002DC225 /* Enum+String+Language.swift */; };
+		B3C900F820B37D74002DC225 /* LanguageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C900F720B37D74002DC225 /* LanguageTableViewController.swift */; };
+		B3C9010920B422A1002DC225 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B3C9010720B422A1002DC225 /* Localizable.strings */; };
+		B3C9011020B4236F002DC225 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C9010C20B4236F002DC225 /* Main.storyboard */; };
+		B3C9011120B4236F002DC225 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3C9010E20B4236F002DC225 /* LaunchScreen.storyboard */; };
 		B3C9E6CD206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */; };
 		B3DA1175208136A6003FDE2F /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3DA1174208136A6003FDE2F /* AlertController.swift */; };
 		B3EA322220AF067A0037572E /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EA322120AF067A0037572E /* PersonTableViewCell.swift */; };
@@ -43,17 +44,12 @@
 		B3234B43203F7D9B0082142A /* Faces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Faces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3234B46203F7D9B0082142A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3234B48203F7D9B0082142A /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		B3234B4D203F7D9B0082142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		B3234B52203F7D9B0082142A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3234B54203F7D9B0082142A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3234B5A203F7E280082142A /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B3270CB620409402007A59A7 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B349B34620A2DF120091DD2C /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
-		B352215920B31E80001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		B352216720B3551B001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		B352216A20B3551B001D9C17 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Person.swift"; sourceTree = "<group>"; };
@@ -65,6 +61,15 @@
 		B3ADFE99206E6DE100B9DF28 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		B3C7A2E8209CF60F00B8FD86 /* PersonInfoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoManager.swift; sourceTree = "<group>"; };
 		B3C7A2EA209CF6F100B8FD86 /* PersonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfo.swift; sourceTree = "<group>"; };
+		B3C900F520B375A0002DC225 /* Enum+String+Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Enum+String+Language.swift"; sourceTree = "<group>"; };
+		B3C900F720B37D74002DC225 /* LanguageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageTableViewController.swift; sourceTree = "<group>"; };
+		B3C9010820B422A1002DC225 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B3C9010B20B422E0002DC225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		B3C9010D20B4236F002DC225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B3C9010F20B4236F002DC225 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B3C9011920B42444002DC225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		B3C9011A20B42444002DC225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		B3C9011B20B42444002DC225 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelSettingsTableViewController.swift; sourceTree = "<group>"; };
 		B3C9E6CF206C3A3A00B4EAB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3DA1174208136A6003FDE2F /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -160,6 +165,7 @@
 				B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */,
 				B38C51D620591FB40019832B /* SCNVector3+Distance.swift */,
 				B38C51DA205920410019832B /* SCNNode+Person.swift */,
+				B3C900F520B375A0002DC225 /* Enum+String+Language.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -202,6 +208,7 @@
 		B395C108206D88AE007DC8BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B3C9010620B42217002DC225 /* Translations */,
 				B35EF6022053FD2E00B9CBC5 /* Assets */,
 				B395C10A206D88D8007DC8BF /* Plist */,
 			);
@@ -220,8 +227,6 @@
 			isa = PBXGroup;
 			children = (
 				B3234B54203F7D9B0082142A /* Info.plist */,
-				B352216920B3551B001D9C17 /* Localizable.strings */,
-				B352216620B3551B001D9C17 /* InfoPlist.strings */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -229,8 +234,8 @@
 		B395C10B206D88F0007DC8BF /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				B3234B4C203F7D9B0082142A /* Main.storyboard */,
-				B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */,
+				B3C9010E20B4236F002DC225 /* LaunchScreen.storyboard */,
+				B3C9010C20B4236F002DC225 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -243,11 +248,20 @@
 			path = TransitionAnimations;
 			sourceTree = "<group>";
 		};
+		B3C9010620B42217002DC225 /* Translations */ = {
+			isa = PBXGroup;
+			children = (
+				B3C9010720B422A1002DC225 /* Localizable.strings */,
+			);
+			path = Translations;
+			sourceTree = "<group>";
+		};
 		B3C9E6CE206C10D200B4EAB5 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */,
 				B3C9E6CC206C10CC00B4EAB5 /* ModelSettingsTableViewController.swift */,
+				B3C900F720B37D74002DC225 /* LanguageTableViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -304,6 +318,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				en,
 				Base,
 				ru,
 			);
@@ -322,13 +337,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C9011020B4236F002DC225 /* Main.storyboard in Resources */,
+				B3C9011120B4236F002DC225 /* LaunchScreen.storyboard in Resources */,
 				B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */,
-				B352216820B3551B001D9C17 /* InfoPlist.strings in Resources */,
+				B3C9010920B422A1002DC225 /* Localizable.strings in Resources */,
 				B3234B5B203F7E280082142A /* .gitignore in Resources */,
-				B352216B20B3551B001D9C17 /* Localizable.strings in Resources */,
 				B3234B49203F7D9B0082142A /* art.scnassets in Resources */,
-				B3234B53203F7D9B0082142A /* LaunchScreen.storyboard in Resources */,
-				B3234B4E203F7D9B0082142A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,6 +358,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Faces/Pods-Faces-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AsyncSwift/Async.framework",
+				"${BUILT_PRODUCTS_DIR}/Localize-Swift/Localize_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework",
@@ -352,6 +367,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Async.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Localize_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SSZipArchive.framework",
@@ -386,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3C900F820B37D74002DC225 /* LanguageTableViewController.swift in Sources */,
 				B3EA322220AF067A0037572E /* PersonTableViewCell.swift in Sources */,
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
 				B38F0A2B207C120500263B3E /* ModelManager.swift in Sources */,
@@ -393,6 +410,7 @@
 				B3270CB720409402007A59A7 /* CameraViewController.swift in Sources */,
 				B3F7877220A399AA00559ABA /* PersonDetailTableViewController.swift in Sources */,
 				B38F0A2D207CBE8000263B3E /* PeopleTableViewController.swift in Sources */,
+				B3C900F620B375A0002DC225 /* Enum+String+Language.swift in Sources */,
 				B3C7A2E9209CF60F00B8FD86 /* PersonInfoManager.swift in Sources */,
 				B38C51DB205920410019832B /* SCNNode+Person.swift in Sources */,
 				B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */,
@@ -411,37 +429,32 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		B3234B4C203F7D9B0082142A /* Main.storyboard */ = {
+		B3C9010720B422A1002DC225 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B3234B4D203F7D9B0082142A /* Base */,
-				B352215920B31E80001D9C17 /* ru */,
+				B3C9010820B422A1002DC225 /* en */,
+				B3C9010B20B422E0002DC225 /* Base */,
+				B3C9011B20B42444002DC225 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		B3C9010C20B4236F002DC225 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B3C9010D20B4236F002DC225 /* Base */,
+				B3C9011A20B42444002DC225 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		B3234B51203F7D9B0082142A /* LaunchScreen.storyboard */ = {
+		B3C9010E20B4236F002DC225 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B3234B52203F7D9B0082142A /* Base */,
+				B3C9010F20B4236F002DC225 /* Base */,
+				B3C9011920B42444002DC225 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B352216620B3551B001D9C17 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B352216720B3551B001D9C17 /* ru */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B352216920B3551B001D9C17 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B352216A20B3551B001D9C17 /* ru */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
