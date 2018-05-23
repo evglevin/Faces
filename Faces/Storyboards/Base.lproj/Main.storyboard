@@ -177,7 +177,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" identifier="cameraViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="eZS-VX-5cF"/>
+                                    <segue destination="o7B-5o-ngJ" kind="presentation" identifier="cameraViewController" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="eZS-VX-5cF"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bex-DI-luw">
@@ -317,7 +317,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dPb-MV-P12" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="55T-VG-9MO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="932" y="-663.41829085457277"/>
+            <point key="canvasLocation" x="820" y="-663"/>
         </scene>
         <!--Person Detail Table View Controller-->
         <scene sceneID="lwI-te-WaM">
@@ -414,7 +414,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEi-vQ-kY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1884" y="-663"/>
+            <point key="canvasLocation" x="1674" y="-663"/>
         </scene>
         <!--Model-->
         <scene sceneID="TGD-uB-L81">
@@ -481,7 +481,7 @@
             </objects>
             <point key="canvasLocation" x="-7" y="799"/>
         </scene>
-        <!--Camera View Controller-->
+        <!--Faces-->
         <scene sceneID="tXr-a1-R10">
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="CameraViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
@@ -489,40 +489,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g08-WU-6BO">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g08-WU-6BO">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                             </arscnView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDD-O5-cSh">
-                                <rect key="frame" x="16" y="605" width="54" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="ers-2V-qm8"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Back"/>
-                                <connections>
-                                    <segue destination="znb-Qy-8wI" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="lqn-05-aMC"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wDD-O5-cSh" firstAttribute="leading" secondItem="zzJ-Ly-1la" secondAttribute="leading" constant="16" id="bta-nw-wb3"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wDD-O5-cSh" secondAttribute="trailing" constant="20" symbolic="YES" id="o1W-rM-NuS"/>
-                            <constraint firstItem="zzJ-Ly-1la" firstAttribute="bottom" secondItem="wDD-O5-cSh" secondAttribute="bottom" constant="20" id="upg-Vb-Nuw"/>
+                            <constraint firstItem="g08-WU-6BO" firstAttribute="top" secondItem="zzJ-Ly-1la" secondAttribute="top" id="FOx-dh-Wv6"/>
+                            <constraint firstItem="g08-WU-6BO" firstAttribute="leading" secondItem="zzJ-Ly-1la" secondAttribute="leading" id="g3r-eb-ZEk"/>
+                            <constraint firstItem="g08-WU-6BO" firstAttribute="trailing" secondItem="zzJ-Ly-1la" secondAttribute="trailing" id="iWZ-9Y-9n9"/>
+                            <constraint firstItem="g08-WU-6BO" firstAttribute="bottom" secondItem="zzJ-Ly-1la" secondAttribute="bottom" id="tfU-KO-D40"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zzJ-Ly-1la"/>
                     </view>
-                    <navigationItem key="navigationItem" id="IS1-sL-Odl"/>
+                    <navigationItem key="navigationItem" title="Faces" largeTitleDisplayMode="never" id="IS1-sL-Odl">
+                        <barButtonItem key="backBarButtonItem" title="Camera" id="9zf-93-PRo"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="ErB-hn-FK7">
+                            <connections>
+                                <segue destination="znb-Qy-8wI" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="o4n-xR-YBA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="BackToStartScreenButton" destination="wDD-O5-cSh" id="Wp6-eG-7ce"/>
                         <outlet property="sceneView" destination="g08-WU-6BO" id="LLg-03-EhS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
                 <exit id="znb-Qy-8wI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-5.5999999999999996" y="32.833583208395808"/>
+            <point key="canvasLocation" x="820" y="32.833583208395808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ghd-oT-3lF">
@@ -559,6 +554,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2A2-2d-wsl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-7.2000000000000002" y="-663.41829085457277"/>
+        </scene>
+        <!--Camera-->
+        <scene sceneID="18y-jN-enB">
+            <objects>
+                <navigationController title="Camera" automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="o7B-5o-ngJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ax4-sE-w7H">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vm6-5g-hzB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BV1-FR-VrT" kind="relationship" relationship="rootViewController" id="rHb-K8-ZYg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dcm-0e-2FP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7" y="33"/>
         </scene>
     </scenes>
 </document>

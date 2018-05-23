@@ -11,12 +11,14 @@ import SceneKit
 import ARKit
 import Vision
 import CoreData
+import Contacts
+import ContactsUI
 
 import RxSwift
 import Async
 import PKHUD
 
-class CameraViewController: UIViewController, ARSCNViewDelegate {
+class CameraViewController: UIViewController, ARSCNViewDelegate, CNContactViewControllerDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var BackToStartScreenButton: UIButton!
@@ -40,6 +42,9 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         sceneView.autoenablesDefaultLighting = true
         
         bounds = sceneView.bounds
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(nameTapped(touch:)))
+        self.sceneView.addGestureRecognizer(gestureRecognizer)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -223,15 +228,15 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
         
         let second = classes[1]
         let id = Int(person.identifier)!
-        print("""
-            [INFO]
-                FIRST
-                confidence: \(person.confidence) for \(person.identifier)
-                SECOND
-                confidence: \(second.confidence) for \(second.identifier)
-            """)
+//        print("""
+//            [INFO]
+//                FIRST
+//                confidence: \(person.confidence) for \(person.identifier)
+//                SECOND
+//                confidence: \(second.confidence) for \(second.identifier)
+//            """)
         if person.confidence < 0.60 || person.identifier == "0" {
-            print("[INFO] Not so sure")
+//            print("[INFO] Not so sure")
             return
         }
         
@@ -342,5 +347,42 @@ class CameraViewController: UIViewController, ARSCNViewDelegate {
             return SCNVector3.positionFromTransform(closestResult.worldTransform)
         }
         return nil
+    }
+    
+    @objc func nameTapped(touch: UITapGestureRecognizer) {
+        print("TAP!!!!")
+        let sceneView = touch.view as! SCNView
+        let touchLocation = touch.location(in: sceneView)
+        
+        let touchResults = sceneView.hitTest(touchLocation, options: [:])
+        
+        guard !touchResults.isEmpty, let node = touchResults.first?.node else { return }
+
+        if let name = node.name {
+            let personId = Int(name)
+            let person = PersonInfoManager.getPerson(byId: personId!)
+            showPersonDetail(person: person)
+        }
+        
+    }
+    
+    func showPersonDetail(person: Person) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let store = CNContactStore()
+        let contact = CNMutableContact()
+        let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (person.phone?.onlyDigits())!))
+        let workEmail = CNLabeledValue(label: CNLabelWork, value: person.email! as! NSString)
+        
+        contact.phoneNumbers = [phone]
+        contact.emailAddresses = [workEmail]
+        contact.givenName = (person.firstName)!
+        contact.familyName = (person.lastName)!
+        contact.organizationName = (person.company)!
+        contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person.photoTitle!)).path)!)
+        contact.note = (person.information)!
+        let controller = CNContactViewController(forUnknownContact: contact)
+        controller.contactStore = store
+        controller.delegate = self
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }

@@ -38,6 +38,7 @@ public extension SCNNode {
         // Reduce default text size
         bubbleNode.scale = SCNVector3Make(0.2, 0.2, 0.2)
         bubbleNode.simdPosition = simd_float3.init(x: 0.05, y: 0.04, z: 0)
+        bubbleNode.name = "\(person.id)"
         
         // IMAGE NODE
         let material = SCNMaterial()
@@ -48,12 +49,14 @@ public extension SCNNode {
         box.firstMaterial = material
         boxNode.scale = SCNVector3Make(0.1, 0.1, 0.1)
         boxNode.simdPosition = simd_float3.init(x: 0.05, y: 0, z: 0)
+        boxNode.name = "\(person.id)"
         
         // CENTRE POINT NODE
         let sphere = SCNSphere(radius: 0.004)
         sphere.firstMaterial?.diffuse.contents = UIColor.gray
         let sphereNode = SCNNode(geometry: sphere)
         sphereNode.opacity = 0.6
+        sphereNode.name = "\(person.id)"
         
         self.init()
         addChildNode(boxNode)

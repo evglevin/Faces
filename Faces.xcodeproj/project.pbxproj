@@ -15,6 +15,8 @@
 		B3270CBB204094F2007A59A7 /* Face.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3270CBA204094F2007A59A7 /* Face.swift */; };
 		B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */; };
 		B349B34720A2DF120091DD2C /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B349B34620A2DF120091DD2C /* SettingsManager.swift */; };
+		B34CEFE220B60B0900628D7E /* String+PhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CEFE120B60B0900628D7E /* String+PhoneNumber.swift */; };
+		B34CEFE520B61D3A00628D7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B34CEFE320B61D3A00628D7E /* InfoPlist.strings */; };
 		B35EF60620548DE200B9CBC5 /* CIImage+FaceDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */; };
 		B38C51D720591FB40019832B /* SCNVector3+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51D620591FB40019832B /* SCNVector3+Distance.swift */; };
 		B38C51DB205920410019832B /* SCNNode+Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C51DA205920410019832B /* SCNNode+Person.swift */; };
@@ -50,6 +52,8 @@
 		B3270CBA204094F2007A59A7 /* Face.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face.swift; sourceTree = "<group>"; };
 		B348EAA1206AEA98008D3D72 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B349B34620A2DF120091DD2C /* SettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
+		B34CEFE120B60B0900628D7E /* String+PhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+PhoneNumber.swift"; sourceTree = "<group>"; };
+		B34CEFE420B61D3A00628D7E /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+FaceDetection.swift"; sourceTree = "<group>"; };
 		B38C51D620591FB40019832B /* SCNVector3+Distance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNVector3+Distance.swift"; sourceTree = "<group>"; };
 		B38C51DA205920410019832B /* SCNNode+Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SCNNode+Person.swift"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 				B35EF60520548DE100B9CBC5 /* CIImage+FaceDetection.swift */,
 				B38C51D620591FB40019832B /* SCNVector3+Distance.swift */,
 				B38C51DA205920410019832B /* SCNNode+Person.swift */,
+				B34CEFE120B60B0900628D7E /* String+PhoneNumber.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				B3234B54203F7D9B0082142A /* Info.plist */,
+				B34CEFE320B61D3A00628D7E /* InfoPlist.strings */,
 			);
 			path = Plist;
 			sourceTree = "<group>";
@@ -338,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3C9011020B4236F002DC225 /* Main.storyboard in Resources */,
+				B34CEFE520B61D3A00628D7E /* InfoPlist.strings in Resources */,
 				B3C9011120B4236F002DC225 /* LaunchScreen.storyboard in Resources */,
 				B3ADFE9A206E6DE100B9DF28 /* Media.xcassets in Resources */,
 				B3C9010920B422A1002DC225 /* Localizable.strings in Resources */,
@@ -402,6 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B34CEFE220B60B0900628D7E /* String+PhoneNumber.swift in Sources */,
 				B3C900F820B37D74002DC225 /* LanguageTableViewController.swift in Sources */,
 				B3EA322220AF067A0037572E /* PersonTableViewCell.swift in Sources */,
 				B348EAA2206AEA98008D3D72 /* SettingsTableViewController.swift in Sources */,
@@ -429,6 +437,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		B34CEFE320B61D3A00628D7E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B34CEFE420B61D3A00628D7E /* ru */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		B3C9010720B422A1002DC225 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
