@@ -26,7 +26,14 @@ class StartScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let topColor = #colorLiteral(red: 0.03137254902, green: 0.7921568627, blue: 1, alpha: 1)
+        let bottomColor = #colorLiteral(red: 0.1137254902, green: 0.4392156863, blue: 0.9450980392, alpha: 1)
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [topColor, bottomColor]
+        gradientLayer.locations = [0.0, 1.0]
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.addSublayer(gradientLayer)
     }
     
     override func didReceiveMemoryWarning() {

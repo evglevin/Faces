@@ -10,11 +10,11 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class PeopleTableViewController: UITableViewController, CNContactViewControllerDelegate {
+class PeopleTableViewController: UITableViewController, CNContactViewControllerDelegate, UISearchControllerDelegate {
     var people = PersonInfoManager.getPeopleInfoFromDB()
     var searchResults = [Person]()
     let searchController = UISearchController(searchResultsController: nil)
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -25,16 +25,13 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.searchResults = people
-        
-        // Configuring the search bar
-        searchController.searchResultsUpdater = self
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.dimsBackgroundDuringPresentation = false
-        definesPresentationContext = true
-        self.navigationItem.searchController = searchController
-        
-        //self.tableView.backgroundView = UIView()
         self.tableView.tableFooterView = UIView()
+        
+        configureSearchController()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,10 +65,10 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        showPersonDetail(person: searchResults[indexPath.row])
-        
-    }
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        showPersonDetail(person: searchResults[indexPath.row])
+//        
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -120,6 +117,15 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
                 destinationViewController.person = self.people[indexPath.row]
             }
         }
+    }
+    
+    func configureSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor.white
+        definesPresentationContext = true
+        self.navigationItem.searchController = searchController
     }
     
     func showPersonDetail(person: Person) {

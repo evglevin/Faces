@@ -9,13 +9,18 @@
 import UIKit
 import Contacts
 import ContactsUI
+import MessageUI
 
-class PersonDetailTableViewController: UITableViewController, CNContactViewControllerDelegate {
+class PersonDetailTableViewController: UITableViewController, CNContactViewControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var faceImageView: UIImageView!
-    @IBOutlet weak var phoneCell: UITableViewCell!
-    @IBOutlet weak var emailCell: UITableViewCell!
+    @IBOutlet weak var companyCell: UITableViewCell!
+    @IBOutlet weak var contactsCell: UITableViewCell!
     @IBOutlet weak var informationCell: UITableViewCell!
-    @IBOutlet weak var companyLabel: UILabel!
+    
     
     var person: Person?
     
@@ -35,13 +40,16 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         faceImageView.layer.cornerRadius = 35
         faceImageView.clipsToBounds = true
         
-        self.companyLabel.text = person?.company
-        self.phoneCell.textLabel?.text = person?.phone
-        self.emailCell.textLabel?.text = person?.email
+        //self.companyLabel.text = person?.company
+        self.contactsCell.textLabel?.numberOfLines = 0
+        self.contactsCell.textLabel?.numberOfLines = 0
         self.informationCell.textLabel?.numberOfLines = 0
+        self.companyCell.textLabel?.text = person?.company
+        self.contactsCell.textLabel?.text = (person?.phone)! + "\n" + (person?.email)!
         self.informationCell.textLabel?.text = person?.information
         
         self.tableView.tableFooterView = UIView()
+        self.tableView.allowsSelection = false;
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,80 +115,33 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         // Pass the selected object to the new view controller.
     }
     */
+
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        switch indexPath.section {
-        case 1:
-            showPhoneAlert()
-            tableView.deselectRow(at: indexPath, animated: true)
-        default:
-            tableView.deselectRow(at: indexPath, animated: false)
+    @IBAction func makePhoneCall(_ sender: Any) {
+        self.person?.phone?.makeAColl()
+    }
+    
+    @IBAction func sendMessage(_ sender: Any) {
+        if (MFMessageComposeViewController.canSendText()) {
+            let controller = MFMessageComposeViewController()
+            controller.recipients = [person?.phone] as! [String]
+            controller.messageComposeDelegate = self
+            self.present(controller, animated: true, completion: nil)
+        } else {
+            AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Oops!", comment: ""), withMessage: NSLocalizedString("Can't send message :(", comment: ""))
         }
-        
     }
     
-    func showPhoneAlert() {
-        let ac = UIAlertController(title: nil, message: "\(person?.phone ?? "")", preferredStyle: .actionSheet)
-        let call = UIAlertAction(title: NSLocalizedString("Call", comment: ""), style: .default, handler: { _ in
-            self.person?.phone?.makeAColl()
-        })
-        let createContact = UIAlertAction(title: NSLocalizedString("Add contact", comment: ""), style: .default, handler: { _ in
-            let store = CNContactStore()
-            let contact = CNMutableContact()
-            let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (self.person?.phone?.onlyDigits())!))
-            let workEmail = CNLabeledValue(label: CNLabelWork, value: self.person?.email! as! NSString)
-            
-            contact.phoneNumbers = [phone]
-            contact.emailAddresses = [workEmail]
-            contact.givenName = (self.person?.firstName)!
-            contact.familyName = (self.person?.lastName)!
-            contact.organizationName = (self.person?.company)!
-            contact.imageData = UIImagePNGRepresentation(self.faceImageView.image!)
-            contact.note = (self.person?.information)!
-            let controller = CNContactViewController(forUnknownContact: contact)
-            controller.contactStore = store
-            controller.delegate = self
-            self.navigationController?.setNavigationBarHidden(false, animated: true)
-            self.navigationController?.pushViewController(controller, animated: true)
-        })
-        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        ac.addAction(cancel)
-        ac.addAction(call)
-        ac.addAction(createContact)
-        present(ac, animated: true, completion: nil)
+    
+    @IBAction func sendEMail(_ sender: Any) {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients([(person?.email)!])
+            present(mail, animated: true)
+        } else {
+            AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Oops!", comment: ""), withMessage: NSLocalizedString("Can't send e-mail :(", comment: ""))
+        }
     }
-
+    
 }
-
-//extension String {
-//
-//    enum RegularExpressions: String {
-//        case phone = "^\\s*(?:\\+?(\\d{1,3}))?([-. (]*(\\d{3})[-. )]*)?((\\d{3})[-. ]*(\\d{2,4})(?:[-.x ]*(\\d+))?)\\s*$"
-//    }
-//
-//    func isValid(regex: RegularExpressions) -> Bool {
-//        return isValid(regex: regex.rawValue)
-//    }
-//
-//    func isValid(regex: String) -> Bool {
-//        let matches = range(of: regex, options: .regularExpression)
-//        return matches != nil
-//    }
-//
-//    func onlyDigits() -> String {
-//        let filtredUnicodeScalars = unicodeScalars.filter{CharacterSet.decimalDigits.contains($0)}
-//        return String(String.UnicodeScalarView(filtredUnicodeScalars))
-//    }
-//
-//    func makeAColl() {
-//        if isValid(regex: .phone) {
-//            if let url = URL(string: "tel://\(self.onlyDigits())"), UIApplication.shared.canOpenURL(url) {
-//                if #available(iOS 10, *) {
-//                    UIApplication.shared.open(url)
-//                } else {
-//                    UIApplication.shared.openURL(url)
-//                }
-//            }
-//        }
-//    }
-//}

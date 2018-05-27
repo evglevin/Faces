@@ -11,7 +11,6 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var languageCell: UITableViewCell!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,8 +27,6 @@ class SettingsTableViewController: UITableViewController {
             languageCell.detailTextLabel?.text = "English"
         }
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

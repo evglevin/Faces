@@ -80,6 +80,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="uiQ-RT-3T6">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="p3Z-HQ-Bxd">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="aIQ-6g-Rkf" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="Wte-22-gZc"/>
                             </connections>
@@ -207,7 +208,8 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.26517671346664429" green="0.41094815731048584" blue="0.69154804944992065" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.23921568627450981" green="0.58431372549019611" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="soh-cb-XxV" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="CFP-Se-3Kj"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerY" secondItem="zec-7N-PGF" secondAttribute="centerY" id="EeW-TQ-TZ7"/>
@@ -298,6 +300,7 @@
                                     <outlet property="faceImageView" destination="f6v-BR-r0j" id="D0g-y6-uYg"/>
                                     <outlet property="nameLabel" destination="bh8-lD-Epc" id="d7Q-LD-JPL"/>
                                     <outlet property="phoneLabel" destination="iYF-sx-sSg" id="jvn-na-1ry"/>
+                                    <segue destination="Fep-B5-sav" kind="show" identifier="personDetailSegue" id="c8Z-O8-IEI"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -308,6 +311,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="dWE-6F-gAX">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="cRA-5m-ODM">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="55T-VG-9MO" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="z6G-YU-JbE"/>
                             </connections>
@@ -344,25 +348,79 @@
                                                         <constraint firstAttribute="width" constant="70" id="jcG-7v-ShZ"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-VH-fDT">
-                                                    <rect key="frame" x="103" y="40" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6nQ-Cz-hhn">
+                                                    <rect key="frame" x="126" y="29" width="43" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="43" id="FbD-Y0-LOz"/>
+                                                        <constraint firstAttribute="height" constant="43" id="ORo-Ae-vRh"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Mobile"/>
+                                                    <connections>
+                                                        <action selector="makePhoneCall:" destination="Fep-B5-sav" eventType="touchUpInside" id="R22-GU-LX7"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90J-kY-P0c">
+                                                    <rect key="frame" x="209" y="29" width="43" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="nAY-6f-meL"/>
+                                                        <constraint firstAttribute="width" constant="43" id="ngj-Dc-rpZ"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Message"/>
+                                                    <connections>
+                                                        <action selector="sendMessage:" destination="Fep-B5-sav" eventType="touchUpInside" id="8tY-Lc-byG"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cyu-c5-X0v">
+                                                    <rect key="frame" x="288" y="29" width="43" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="6Sz-rK-DSS"/>
+                                                        <constraint firstAttribute="width" constant="43" id="lM6-m2-S7h"/>
+                                                    </constraints>
+                                                    <state key="normal" image="Mail Inactive"/>
+                                                    <connections>
+                                                        <action selector="sendEMail:" destination="Fep-B5-sav" eventType="touchUpInside" id="ujw-6t-oNn"/>
+                                                    </connections>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Call" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWJ-C6-Zxh">
+                                                    <rect key="frame" x="139" y="77" width="17" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.43529411764705883" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teh-U1-ghN">
+                                                    <rect key="frame" x="210" y="77" width="40" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.43529411759999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-Mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AP8-A1-cG2">
+                                                    <rect key="frame" x="295" y="77" width="28" height="11"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                                                    <color key="textColor" red="0.0" green="0.43529411759999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ObC-VH-fDT" firstAttribute="top" secondItem="i20-vL-HaY" secondAttribute="top" constant="40" id="205-Nn-qkh"/>
-                                                <constraint firstItem="ObC-VH-fDT" firstAttribute="leading" secondItem="6BZ-We-bBy" secondAttribute="trailing" constant="17" id="UxY-JG-bZY"/>
+                                                <constraint firstItem="AP8-A1-cG2" firstAttribute="centerX" secondItem="Cyu-c5-X0v" secondAttribute="centerX" id="1xd-cr-QDg"/>
+                                                <constraint firstItem="6nQ-Cz-hhn" firstAttribute="leading" secondItem="6BZ-We-bBy" secondAttribute="trailing" constant="40" id="7Yh-s9-oc1"/>
+                                                <constraint firstItem="AP8-A1-cG2" firstAttribute="top" secondItem="Cyu-c5-X0v" secondAttribute="bottom" constant="5" id="HRz-La-ghh"/>
+                                                <constraint firstItem="Cyu-c5-X0v" firstAttribute="centerY" secondItem="i20-vL-HaY" secondAttribute="centerY" id="NfZ-Ri-XBS"/>
+                                                <constraint firstItem="teh-U1-ghN" firstAttribute="top" secondItem="90J-kY-P0c" secondAttribute="bottom" constant="5" id="Sap-Rn-rEU"/>
+                                                <constraint firstItem="teh-U1-ghN" firstAttribute="centerX" secondItem="90J-kY-P0c" secondAttribute="centerX" id="X76-xE-rds"/>
                                                 <constraint firstItem="6BZ-We-bBy" firstAttribute="top" secondItem="i20-vL-HaY" secondAttribute="top" constant="15" id="XSW-cR-5b3"/>
                                                 <constraint firstItem="6BZ-We-bBy" firstAttribute="leading" secondItem="i20-vL-HaY" secondAttribute="leading" constant="16" id="ZHN-rp-XBT"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ObC-VH-fDT" secondAttribute="trailing" constant="20" symbolic="YES" id="aLA-pN-39q"/>
+                                                <constraint firstItem="dWJ-C6-Zxh" firstAttribute="centerX" secondItem="6nQ-Cz-hhn" secondAttribute="centerX" id="epU-Sh-qpx"/>
+                                                <constraint firstItem="dWJ-C6-Zxh" firstAttribute="top" secondItem="6nQ-Cz-hhn" secondAttribute="bottom" constant="5" id="fQa-5y-SQJ"/>
+                                                <constraint firstItem="Cyu-c5-X0v" firstAttribute="leading" secondItem="90J-kY-P0c" secondAttribute="trailing" constant="36" id="g5L-id-0tm"/>
+                                                <constraint firstItem="90J-kY-P0c" firstAttribute="leading" secondItem="6nQ-Cz-hhn" secondAttribute="trailing" constant="40" id="pl8-3G-2g5"/>
+                                                <constraint firstItem="90J-kY-P0c" firstAttribute="centerY" secondItem="i20-vL-HaY" secondAttribute="centerY" id="tJe-MU-9eO"/>
+                                                <constraint firstItem="6nQ-Cz-hhn" firstAttribute="centerY" secondItem="i20-vL-HaY" secondAttribute="centerY" id="wC6-6G-RI7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Phone" id="zC5-eP-TL8">
+                            <tableViewSection headerTitle="Company" id="zC5-eP-TL8">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="phoneCell" id="Da0-hx-VfH">
                                         <rect key="frame" x="0.0" y="129" width="375" height="44"/>
@@ -374,7 +432,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="E-mail" id="3hK-lu-Cx3">
+                            <tableViewSection headerTitle="Contacts" id="3hK-lu-Cx3">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F1Q-0R-La5">
                                         <rect key="frame" x="0.0" y="201" width="375" height="44"/>
@@ -405,16 +463,15 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <outlet property="companyLabel" destination="ObC-VH-fDT" id="evW-KT-Kry"/>
-                        <outlet property="emailCell" destination="F1Q-0R-La5" id="MKH-Te-bje"/>
+                        <outlet property="companyCell" destination="Da0-hx-VfH" id="kB8-DH-fV4"/>
+                        <outlet property="contactsCell" destination="F1Q-0R-La5" id="MKH-Te-bje"/>
                         <outlet property="faceImageView" destination="6BZ-We-bBy" id="qcX-ma-tZZ"/>
                         <outlet property="informationCell" destination="iAg-wb-ved" id="VBS-Mm-7Dc"/>
-                        <outlet property="phoneCell" destination="Da0-hx-VfH" id="kB8-DH-fV4"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEi-vQ-kY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1674" y="-663"/>
+            <point key="canvasLocation" x="1672.8" y="-663.41829085457277"/>
         </scene>
         <!--Model-->
         <scene sceneID="TGD-uB-L81">
@@ -505,6 +562,7 @@
                     <navigationItem key="navigationItem" title="Faces" largeTitleDisplayMode="never" id="IS1-sL-Odl">
                         <barButtonItem key="backBarButtonItem" title="Camera" id="9zf-93-PRo"/>
                         <barButtonItem key="leftBarButtonItem" title="Close" id="ErB-hn-FK7">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="znb-Qy-8wI" kind="unwind" unwindAction="unwindToStartScreenWithSegue:" id="o4n-xR-YBA"/>
                             </connections>
@@ -524,9 +582,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iah-8f-srQ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="I35-ta-B1A">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="I35-ta-B1A">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.20784313725490197" green="0.54117647058823526" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -542,9 +608,17 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cz3-Sd-qTW" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XOF-IX-pYj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="XOF-IX-pYj">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.20784313725490197" green="0.54117647058823526" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -560,9 +634,16 @@
             <objects>
                 <navigationController title="Camera" automaticallyAdjustsScrollViewInsets="NO" hidesBarsWhenVerticallyCompact="YES" id="o7B-5o-ngJ" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ax4-sE-w7H">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Ax4-sE-w7H">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.20784313725490197" green="0.54117647058823526" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vm6-5g-hzB">
@@ -577,4 +658,9 @@
             <point key="canvasLocation" x="-7" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Mail Inactive" width="185" height="185"/>
+        <image name="Message" width="185" height="185"/>
+        <image name="Mobile" width="185" height="185"/>
+    </resources>
 </document>
