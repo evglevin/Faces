@@ -11,8 +11,8 @@ import UIKit
 class StartScreenViewController: UIViewController {
 
     @IBOutlet weak var cameraButton: UIButton!
-    @IBOutlet weak var settingsButton: UIButton!
     @IBOutlet weak var peopleButton: UIButton!
+    @IBOutlet weak var settingsButton: UIButton!
     
     
     // MARK: Animations
@@ -27,18 +27,21 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let topColor = #colorLiteral(red: 0.03137254902, green: 0.7921568627, blue: 1, alpha: 1)
-        let bottomColor = #colorLiteral(red: 0.1137254902, green: 0.4392156863, blue: 0.9450980392, alpha: 1)
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [topColor, bottomColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = self.view.bounds
-        self.view.layer.addSublayer(gradientLayer)
+        makeBorders(forButton: cameraButton)
+        makeBorders(forButton: peopleButton)
+        makeBorders(forButton: settingsButton)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func makeBorders(forButton button: UIButton) {
+        button.layer.cornerRadius = 5
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.white.cgColor
+        button.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     

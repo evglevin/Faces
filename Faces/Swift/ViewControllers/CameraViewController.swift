@@ -23,9 +23,9 @@ class CameraViewController: UIViewController, ARSCNViewDelegate, CNContactViewCo
     @IBOutlet var sceneView: ARSCNView!
     @IBOutlet weak var BackToStartScreenButton: UIButton!
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
     
     var disposeBag = DisposeBag()
     var faces = [Face]()
@@ -49,7 +49,6 @@ class CameraViewController: UIViewController, ARSCNViewDelegate, CNContactViewCo
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
@@ -228,15 +227,15 @@ class CameraViewController: UIViewController, ARSCNViewDelegate, CNContactViewCo
         
         let second = classes[1]
         let id = Int(person.identifier)!
-//        print("""
-//            [INFO]
-//                FIRST
-//                confidence: \(person.confidence) for \(person.identifier)
-//                SECOND
-//                confidence: \(second.confidence) for \(second.identifier)
-//            """)
+        print("""
+            [INFO]
+                FIRST
+                confidence: \(person.confidence) for \(person.identifier)
+                SECOND
+                confidence: \(second.confidence) for \(second.identifier)
+            """)
         if person.confidence < 0.60 || person.identifier == "0" {
-//            print("[INFO] Not so sure")
+            print("[INFO] Not so sure")
             return
         }
         
@@ -361,28 +360,15 @@ class CameraViewController: UIViewController, ARSCNViewDelegate, CNContactViewCo
         if let name = node.name {
             let personId = Int(name)
             let person = PersonInfoManager.getPerson(byId: personId!)
-            showPersonDetail(person: person)
+            showDetail(forPerson: person)
         }
         
     }
     
-    func showPersonDetail(person: Person) {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let store = CNContactStore()
-        let contact = CNMutableContact()
-        let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (person.phone?.onlyDigits())!))
-        let workEmail = CNLabeledValue(label: CNLabelWork, value: person.email! as! NSString)
-        
-        contact.phoneNumbers = [phone]
-        contact.emailAddresses = [workEmail]
-        contact.givenName = (person.firstName)!
-        contact.familyName = (person.lastName)!
-        contact.organizationName = (person.company)!
-        contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person.photoTitle!)).path)!)
-        contact.note = (person.information)!
-        let controller = CNContactViewController(forUnknownContact: contact)
-        controller.contactStore = store
-        controller.delegate = self
-        self.navigationController?.pushViewController(controller, animated: true)
+    func showDetail(forPerson person: Person) {
+        let personDetailTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "personDetailTableViewController") as! PersonDetailTableViewController
+        personDetailTableViewController.person = person
+        //self.present(personDetailTableViewController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(personDetailTableViewController, animated: true)
     }
 }

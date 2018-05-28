@@ -10,6 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 import MessageUI
+import AddressBook
 
 class PersonDetailTableViewController: UITableViewController, CNContactViewControllerDelegate, MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate {
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -35,6 +36,8 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.navigationItem.title = "\(person?.firstName ?? "") \(person?.lastName ?? "")"
         self.faceImageView.image = UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person?.photoTitle!)!).path)
         faceImageView.layer.cornerRadius = 35
@@ -49,7 +52,11 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         self.informationCell.textLabel?.text = person?.information
         
         self.tableView.tableFooterView = UIView()
-        self.tableView.allowsSelection = false;
+        self.tableView.allowsSelection = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -124,7 +131,7 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
     @IBAction func sendMessage(_ sender: Any) {
         if (MFMessageComposeViewController.canSendText()) {
             let controller = MFMessageComposeViewController()
-            controller.recipients = [person?.phone] as! [String]
+            controller.recipients = [person?.phone] as? [String]
             controller.messageComposeDelegate = self
             self.present(controller, animated: true, completion: nil)
         } else {
@@ -144,4 +151,38 @@ class PersonDetailTableViewController: UITableViewController, CNContactViewContr
         }
     }
     
+    @IBAction func addToContacts(_ sender: Any) {
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let store = CNContactStore()
+        let contact = CNMutableContact()
+        let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (person?.phone?.onlyDigits())!))
+        let workEmail = CNLabeledValue(label: CNLabelWork, value: person?.email! as! NSString)
+        
+        contact.phoneNumbers = [phone]
+        contact.emailAddresses = [workEmail]
+        contact.givenName = (person?.firstName)!
+        contact.familyName = (person?.lastName)!
+        contact.organizationName = (person?.company)!
+        contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person?.photoTitle)!).path)!)
+        contact.note = (person?.information)!
+        
+        let saveRequest = CNSaveRequest()
+        saveRequest.add(contact, toContainerWithIdentifier: nil)
+        do {
+            try? store.execute(saveRequest)
+            AlertController.showMessageAlert(onViewController: self,
+                                             withTitle: NSLocalizedString("Success!", comment: ""),
+                                             withMessage: NSLocalizedString("The contact has been successfully added to your address book", comment: ""))
+        } catch {
+            AlertController.showMessageAlert(onViewController: self, withTitle: NSLocalizedString("Can't save contact", comment: ""), withMessage: "")
+        }
+        
+//        let controller = CNContactViewController(forUnknownContact: contact)
+//        controller.contactStore = store
+//        controller.delegate = self
+//        self.navigationController?.setNavigationBarHidden(false, animated: true)
+//        self.navigationController?.pushViewController(controller, animated: true)
+//        controller.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.0862745098, green: 0.4941176471, blue: 0.9843137255, alpha: 1)
+//        controller.navigationController?.navigationBar.barStyle = .default
+    }
 }

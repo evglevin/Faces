@@ -127,28 +127,6 @@ class PeopleTableViewController: UITableViewController, CNContactViewControllerD
         definesPresentationContext = true
         self.navigationItem.searchController = searchController
     }
-    
-    func showPersonDetail(person: Person) {
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let store = CNContactStore()
-        let contact = CNMutableContact()
-        let phone = CNLabeledValue(label: CNLabelWork, value: CNPhoneNumber(stringValue: (person.phone?.onlyDigits())!))
-        let workEmail = CNLabeledValue(label: CNLabelWork, value: person.email! as! NSString)
-        
-        contact.phoneNumbers = [phone]
-        contact.emailAddresses = [workEmail]
-        contact.givenName = (person.firstName)!
-        contact.familyName = (person.lastName)!
-        contact.organizationName = (person.company)!
-        contact.imageData = UIImagePNGRepresentation(UIImage(contentsOfFile: documentsURL.appendingPathComponent(SettingsManager.getModelPath() + "/Avatars/" + (person.photoTitle!)).path)!)
-        contact.note = (person.information)!
-        let controller = CNContactViewController(forUnknownContact: contact)
-        controller.contactStore = store
-        controller.delegate = self
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
-        self.navigationController?.pushViewController(controller, animated: true)
-    }
-
 }
 
 

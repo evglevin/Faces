@@ -165,14 +165,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wji-hf-fP9">
-                                <rect key="frame" x="124.5" y="130" width="126" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3N-3c-dLR">
-                                <rect key="frame" x="136.5" y="319.5" width="102" height="48"/>
+                                <rect key="frame" x="134" y="375" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Camera">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -182,7 +176,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bex-DI-luw">
-                                <rect key="frame" x="134" y="431" width="107" height="48"/>
+                                <rect key="frame" x="134" y="529" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Settings">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -195,7 +189,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soh-cb-XxV">
-                                <rect key="frame" x="143" y="375" width="89" height="48"/>
+                                <rect key="frame" x="134" y="455" width="107" height="48"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="People">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,18 +201,35 @@
                                     <segue destination="Cz3-Sd-qTW" kind="show" id="1oF-mS-yBy"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Faces" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wji-hf-fP9">
+                                <rect key="frame" x="124" y="244" width="126" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dUZ-oJ-Ofq">
+                                <rect key="frame" x="136" y="97" width="102" height="139"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="139" id="mya-d5-4a5"/>
+                                    <constraint firstAttribute="width" constant="102" id="oqE-4L-Oqs"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.23921568627450981" green="0.58431372549019611" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Wji-hf-fP9" firstAttribute="top" secondItem="dUZ-oJ-Ofq" secondAttribute="bottom" constant="8" id="15K-z3-w66"/>
                             <constraint firstItem="soh-cb-XxV" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="CFP-Se-3Kj"/>
-                            <constraint firstItem="J3N-3c-dLR" firstAttribute="centerY" secondItem="zec-7N-PGF" secondAttribute="centerY" id="EeW-TQ-TZ7"/>
+                            <constraint firstItem="J3N-3c-dLR" firstAttribute="centerY" secondItem="zec-7N-PGF" secondAttribute="centerY" constant="55.5" id="EeW-TQ-TZ7"/>
+                            <constraint firstItem="dUZ-oJ-Ofq" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="GaU-ee-8hl"/>
+                            <constraint firstItem="J3N-3c-dLR" firstAttribute="width" secondItem="bex-DI-luw" secondAttribute="width" id="Jjk-JX-2UE"/>
                             <constraint firstItem="Wji-hf-fP9" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="Q1F-Mt-rnk"/>
-                            <constraint firstItem="soh-cb-XxV" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="7.5" id="Vg5-dq-naE"/>
-                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="soh-cb-XxV" secondAttribute="bottom" constant="8" id="aLG-DC-kmI"/>
+                            <constraint firstItem="soh-cb-XxV" firstAttribute="top" secondItem="J3N-3c-dLR" secondAttribute="bottom" constant="31.5" id="Vg5-dq-naE"/>
+                            <constraint firstItem="bex-DI-luw" firstAttribute="top" secondItem="soh-cb-XxV" secondAttribute="bottom" constant="26" id="aLG-DC-kmI"/>
+                            <constraint firstItem="soh-cb-XxV" firstAttribute="width" secondItem="bex-DI-luw" secondAttribute="width" id="bPY-Jh-MHv"/>
                             <constraint firstItem="bex-DI-luw" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="e9y-Um-CGx"/>
                             <constraint firstItem="J3N-3c-dLR" firstAttribute="centerX" secondItem="zec-7N-PGF" secondAttribute="centerX" id="k9I-Ts-XPU"/>
-                            <constraint firstItem="Wji-hf-fP9" firstAttribute="top" secondItem="zec-7N-PGF" secondAttribute="top" constant="110" id="owv-4h-E2I"/>
+                            <constraint firstItem="Wji-hf-fP9" firstAttribute="top" secondItem="zec-7N-PGF" secondAttribute="top" constant="224" id="owv-4h-E2I"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zec-7N-PGF"/>
                     </view>
@@ -243,11 +254,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="top" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="personTableCell" rowHeight="90" id="1h7-va-via" customClass="PersonTableViewCell" customModule="Faces" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="top" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="personTableCell" rowHeight="90" id="1h7-va-via" customClass="PersonTableViewCell" customModule="Faces" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1h7-va-via" id="Aka-4u-9Ly">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="89.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f6v-BR-r0j">
@@ -309,7 +320,7 @@
                             <outlet property="delegate" destination="LdH-jy-uHc" id="vgo-Yf-2Ht"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="People" id="dWE-6F-gAX">
+                    <navigationItem key="navigationItem" title="People" largeTitleDisplayMode="always" id="dWE-6F-gAX">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="cRA-5m-ODM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -326,7 +337,7 @@
         <!--Person Detail Table View Controller-->
         <scene sceneID="lwI-te-WaM">
             <objects>
-                <tableViewController id="Fep-B5-sav" customClass="PersonDetailTableViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="personDetailTableViewController" id="Fep-B5-sav" customClass="PersonDetailTableViewController" customModule="Faces" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kL2-3U-1B6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -462,6 +473,13 @@
                             <outlet property="delegate" destination="Fep-B5-sav" id="Xv4-40-1TC"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="yFJ-1z-F8X">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q7P-VV-j22">
+                            <connections>
+                                <action selector="addToContacts:" destination="Fep-B5-sav" id="Pov-Jf-Snz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="companyCell" destination="Da0-hx-VfH" id="kB8-DH-fV4"/>
                         <outlet property="contactsCell" destination="F1Q-0R-La5" id="MKH-Te-bje"/>
@@ -659,6 +677,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Logo" width="278" height="376"/>
         <image name="Mail Inactive" width="185" height="185"/>
         <image name="Message" width="185" height="185"/>
         <image name="Mobile" width="185" height="185"/>
