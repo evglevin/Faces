@@ -25,7 +25,7 @@ public extension SCNNode {
         let bubble = SCNText(string: person.firstName! + " " + person.lastName!, extrusionDepth: CGFloat(bubbleDepth))
         bubble.font = UIFont(name: "Futura", size: 0.18)?.withTraits(traits: .traitBold)
         bubble.alignmentMode = kCAAlignmentCenter
-        bubble.firstMaterial?.diffuse.contents = UIColor.green
+        bubble.firstMaterial?.diffuse.contents = #colorLiteral(red: 0.3098039216, green: 0.5647058824, blue: 0.8588235294, alpha: 1)
         bubble.firstMaterial?.specular.contents = UIColor.white
         bubble.firstMaterial?.isDoubleSided = true
         bubble.chamferRadius = CGFloat(bubbleDepth)
